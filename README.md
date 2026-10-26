@@ -21,6 +21,9 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [BankAccount](src/CSharpExercises/Oop/BankAccount.cs) | encapsulation, invariants, guard clauses |
 | **Algorithms** | [Sorting](src/CSharpExercises/Algorithms/Sorting.cs) | bubble sort, merge sort, quick sort (generic) |
 | | [Searching](src/CSharpExercises/Algorithms/Searching.cs) | binary search, Two Sum with a hash map |
+| **Async** | [ParallelDownloader](src/CSharpExercises/Async/ParallelDownloader.cs) | `Task.WhenAll`, throttling with `SemaphoreSlim`, racing with `Task.WhenAny` |
+| | [Resilience](src/CSharpExercises/Async/Resilience.cs) | retry with exponential backoff, timeouts via `CancellationToken` |
+| | [AsyncStreams](src/CSharpExercises/Async/AsyncStreams.cs) | `IAsyncEnumerable`, `[EnumeratorCancellation]`, producer/consumer with `Channel<T>` |
 
 ## Project structure
 
@@ -44,7 +47,7 @@ dotnet test
 
 Ideas for upcoming exercises:
 
-- [ ] **Async**: parallel downloads with `Task.WhenAll`, cancellation tokens, `IAsyncEnumerable`
+- [x] **Async**: parallel downloads with `Task.WhenAll`, cancellation tokens, `IAsyncEnumerable`
 - [ ] **Data structures**: linked list, binary search tree, min-heap / priority queue, graph with BFS & DFS
 - [ ] **Algorithms**: dynamic programming (coin change, longest common subsequence), Dijkstra
 - [ ] **Design patterns**: strategy, observer, factory, decorator, builder
