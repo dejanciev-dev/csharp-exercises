@@ -25,6 +25,8 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [BankAccount](src/CSharpExercises/Oop/BankAccount.cs) | encapsulation, invariants, guard clauses |
 | **Algorithms** | [Sorting](src/CSharpExercises/Algorithms/Sorting.cs) | bubble sort, merge sort, quick sort (generic) |
 | | [Searching](src/CSharpExercises/Algorithms/Searching.cs) | binary search, Two Sum with a hash map |
+| | [DynamicProgramming](src/CSharpExercises/Algorithms/DynamicProgramming.cs) | coin change (min coins & number of ways), longest common subsequence, edit distance |
+| | [Dijkstra](src/CSharpExercises/Algorithms/Dijkstra.cs) | weighted shortest paths with a priority queue (reuses `MinHeap<T>`) |
 | **Async** | [ParallelDownloader](src/CSharpExercises/Async/ParallelDownloader.cs) | `Task.WhenAll`, throttling with `SemaphoreSlim`, racing with `Task.WhenAny` |
 | | [Resilience](src/CSharpExercises/Async/Resilience.cs) | retry with exponential backoff, timeouts via `CancellationToken` |
 | | [AsyncStreams](src/CSharpExercises/Async/AsyncStreams.cs) | `IAsyncEnumerable`, `[EnumeratorCancellation]`, producer/consumer with `Channel<T>` |
@@ -53,7 +55,7 @@ Ideas for upcoming exercises:
 
 - [x] **Async**: parallel downloads with `Task.WhenAll`, cancellation tokens, `IAsyncEnumerable`
 - [x] **Data structures**: linked list, binary search tree, min-heap / priority queue, graph with BFS & DFS
-- [ ] **Algorithms**: dynamic programming (coin change, longest common subsequence), Dijkstra
+- [x] **Algorithms**: dynamic programming (coin change, longest common subsequence), Dijkstra
 - [ ] **Design patterns**: strategy, observer, factory, decorator, builder
 - [ ] **Modern C#**: records with `with` expressions, list patterns, generic math (`INumber<T>`), `Span<T>`
 - [ ] **Benchmarks**: comparing the sorting algorithms with BenchmarkDotNet
