@@ -23,6 +23,11 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **LINQ** | [LinqExercises](src/CSharpExercises/Linq/LinqExercises.cs) | `GroupBy`, `MaxBy`, `CountBy`, `Chunk`, records |
 | **OOP** | [Shapes](src/CSharpExercises/Oop/Shapes.cs) | abstraction, inheritance, polymorphism, primary constructors |
 | | [BankAccount](src/CSharpExercises/Oop/BankAccount.cs) | encapsulation, invariants, guard clauses |
+| **Design patterns** | [Strategy](src/CSharpExercises/Patterns/Strategy.cs) | swappable, composable discount rules for a shopping cart |
+| | [Observer](src/CSharpExercises/Patterns/Observer.cs) | stock price alerts with `IObservable<T>` / `IObserver<T>` |
+| | [Factory](src/CSharpExercises/Patterns/ShapeFactory.cs) | create shapes from text, register new ones without changing the factory |
+| | [Decorator](src/CSharpExercises/Patterns/Decorator.cs) | caching, logging and sale prices stacked around a price service |
+| | [Builder](src/CSharpExercises/Patterns/EmailBuilder.cs) | fluent API producing an immutable, validated email |
 | **Algorithms** | [Sorting](src/CSharpExercises/Algorithms/Sorting.cs) | bubble sort, merge sort, quick sort (generic) |
 | | [Searching](src/CSharpExercises/Algorithms/Searching.cs) | binary search, Two Sum with a hash map |
 | | [DynamicProgramming](src/CSharpExercises/Algorithms/DynamicProgramming.cs) | coin change (min coins & number of ways), longest common subsequence, edit distance |
@@ -56,7 +61,7 @@ Ideas for upcoming exercises:
 - [x] **Async**: parallel downloads with `Task.WhenAll`, cancellation tokens, `IAsyncEnumerable`
 - [x] **Data structures**: linked list, binary search tree, min-heap / priority queue, graph with BFS & DFS
 - [x] **Algorithms**: dynamic programming (coin change, longest common subsequence), Dijkstra
-- [ ] **Design patterns**: strategy, observer, factory, decorator, builder
+- [x] **Design patterns**: strategy, observer, factory, decorator, builder
 - [ ] **Modern C#**: records with `with` expressions, list patterns, generic math (`INumber<T>`), `Span<T>`
 - [ ] **Benchmarks**: comparing the sorting algorithms with BenchmarkDotNet
 
