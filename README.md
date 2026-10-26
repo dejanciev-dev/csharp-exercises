@@ -32,6 +32,10 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Builder](src/CSharpExercises/Patterns/EmailBuilder.cs) | fluent API producing an immutable, validated email |
 | **Dependency injection** | [MiniContainer](src/CSharpExercises/DependencyInjection/MiniContainer.cs) | a DI container from scratch: reflection-based constructor injection, lifetimes, scopes, cycle and captive-dependency detection |
 | | [Messaging](src/CSharpExercises/DependencyInjection/Messaging.cs) | `Microsoft.Extensions.DependencyInjection`: `AddXxx` extension, keyed services, `TimeProvider`, scope validation |
+| **Testing techniques** | [RenewalService](src/CSharpExercises/Testing/RenewalService.cs) | code designed for testing: dependencies as interfaces, `TimeProvider` for the clock |
+| | [Test doubles](tests/CSharpExercises.Tests/Testing/TestDoubles.cs) | hand-written dummy, stub, spy and fake, compared with [NSubstitute mocks](tests/CSharpExercises.Tests/Testing/RenewalServiceMockTests.cs) |
+| | [SubscriptionBuilder](tests/CSharpExercises.Tests/Testing/SubscriptionBuilder.cs) | test data builder with defaults and an implicit conversion |
+| | [TimeBased](src/CSharpExercises/Testing/TimeBased.cs) | rate limiter and debouncer tested instantly with `FakeTimeProvider` |
 | **Algorithms** | [Sorting](src/CSharpExercises/Algorithms/Sorting.cs) | bubble sort, merge sort, quick sort (generic) |
 | | [Searching](src/CSharpExercises/Algorithms/Searching.cs) | binary search, Two Sum with a hash map |
 | | [DynamicProgramming](src/CSharpExercises/Algorithms/DynamicProgramming.cs) | coin change (min coins & number of ways), longest common subsequence, edit distance |
@@ -115,7 +119,7 @@ Ideas for upcoming exercises:
 - [x] **Benchmarks**: comparing the sorting algorithms with BenchmarkDotNet
 - [x] **LINQ internals**: rebuilding `Where`, `Select`, `OrderBy`, `GroupBy` and friends with `yield`
 - [x] **Dependency injection**: constructor injection, lifetimes, `Microsoft.Extensions.DependencyInjection`
-- [ ] **Testing techniques**: test doubles and mocks, test data builders, testing time with `TimeProvider`
+- [x] **Testing techniques**: test doubles and mocks, test data builders, testing time with `TimeProvider`
 - [ ] **Putting it together**: a small console app or web API built on these exercises
 
 ## Author
