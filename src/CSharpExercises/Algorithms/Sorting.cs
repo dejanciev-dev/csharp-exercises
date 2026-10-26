@@ -55,21 +55,37 @@ public static class Sorting
 
     private static void QuickSort<T>(T[] a, int low, int high) where T : IComparable<T>
     {
-        if (low >= high) return;
-
-        var pivot = a[high];
-        var p = low;
-        for (var j = low; j < high; j++)
+        // Recurse into the smaller part and loop on the larger one, so the call depth stays O(log n).
+        while (low < high)
         {
-            if (a[j].CompareTo(pivot) < 0)
+            var p = Partition(a, low, high);
+            if (p - low < high - p)
             {
-                (a[p], a[j]) = (a[j], a[p]);
-                p++;
+                QuickSort(a, low, p);
+                low = p + 1;
+            }
+            else
+            {
+                QuickSort(a, p + 1, high);
+                high = p;
             }
         }
+    }
 
-        (a[p], a[high]) = (a[high], a[p]);
-        QuickSort(a, low, p - 1);
-        QuickSort(a, p + 1, high);
+    // Hoare partition around the middle element. Picking the last element instead makes sorted or reversed
+    // input O(n²) with one stack frame per element (a stack overflow at ~10,000 items); Hoare also keeps
+    // inputs with many equal values fast.
+    private static int Partition<T>(T[] a, int low, int high) where T : IComparable<T>
+    {
+        var pivot = a[low + (high - low) / 2];
+        int i = low - 1, j = high + 1;
+        while (true)
+        {
+            do i++; while (a[i].CompareTo(pivot) < 0);
+            do j--; while (a[j].CompareTo(pivot) > 0);
+            if (i >= j) return j;
+
+            (a[i], a[j]) = (a[j], a[i]);
+        }
     }
 }

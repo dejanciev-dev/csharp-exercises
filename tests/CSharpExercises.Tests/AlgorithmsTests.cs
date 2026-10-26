@@ -26,6 +26,22 @@ public class AlgorithmsTests
         Assert.Equal(original, input); // input is left untouched
     }
 
+    public static TheoryData<string, int[]> LargeInputs => new()
+    {
+        { "sorted", Enumerable.Range(0, 100_000).ToArray() },
+        { "reversed", Enumerable.Range(0, 100_000).Reverse().ToArray() },
+        { "all equal", Enumerable.Repeat(7, 100_000).ToArray() },
+        { "random", Enumerable.Range(0, 100_000).Select(i => (i * 7919) % 100_003).ToArray() }
+    };
+
+    [Theory]
+    [MemberData(nameof(LargeInputs))]
+    public void QuickSort_HandlesLargeWorstCaseInputs(string kind, int[] input)
+    {
+        Assert.NotEmpty(kind);
+        Assert.Equal(input.Order(), Sorting.QuickSort(input));
+    }
+
     [Fact]
     public void Sorts_WorkWithStrings() =>
         Assert.Equal(["apple", "banana", "cherry"], Sorting.MergeSort(["cherry", "apple", "banana"]));

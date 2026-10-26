@@ -44,8 +44,9 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 
 ```
 csharp-exercises/
-├── src/CSharpExercises/          # exercise implementations, one folder per topic
-└── tests/CSharpExercises.Tests/  # xUnit tests for every exercise
+├── src/CSharpExercises/                    # exercise implementations, one folder per topic
+├── tests/CSharpExercises.Tests/            # xUnit tests for every exercise
+└── benchmarks/CSharpExercises.Benchmarks/  # BenchmarkDotNet performance comparisons
 ```
 
 ## Getting started
@@ -58,6 +59,46 @@ cd csharp-exercises
 dotnet test
 ```
 
+## Benchmarks
+
+The [benchmarks](benchmarks/CSharpExercises.Benchmarks) project uses [BenchmarkDotNet](https://benchmarkdotnet.org/) to compare the hand-written sorts against `Array.Sort` and LINQ, and the `Span<T>` CSV parser against `string.Split`.
+
+```bash
+# quick run (a few minutes); drop --job short for full statistical precision
+dotnet run -c Release --project benchmarks/CSharpExercises.Benchmarks -- --filter '*' --job short
+
+# just one class
+dotnet run -c Release --project benchmarks/CSharpExercises.Benchmarks -- --filter '*Csv*'
+```
+
+### Sorting 10,000 integers
+
+| Method | Random | Already sorted | Reversed | Allocated |
+|---|---:|---:|---:|---:|
+| `Array.Sort` (baseline) | 0.67 ms | 0.07 ms | 0.18 ms | 39 KB |
+| LINQ `Order()` | 0.64 ms | 0.08 ms | 0.18 ms | 39 KB |
+| [QuickSort](src/CSharpExercises/Algorithms/Sorting.cs) | 0.94 ms | 0.15 ms | 0.16 ms | 39 KB |
+| [MergeSort](src/CSharpExercises/Algorithms/Sorting.cs) | 2.32 ms | 1.18 ms | 1.56 ms | 2,133 KB |
+| [BubbleSort](src/CSharpExercises/Algorithms/Sorting.cs) | 145.9 ms | **0.01 ms** | 93.8 ms | 39 KB |
+
+What the numbers show:
+
+- **Big-O wins at scale.** Bubble sort is O(n²): about 200× slower than `Array.Sort` on 10,000 random items, but only 10× slower on 100.
+- **Best cases matter.** Bubble sort stops after one pass when nothing swaps, so on already-sorted input it is the fastest of all.
+- **Allocations cost time.** Merge sort creates new arrays at every level of recursion (2 MB vs 39 KB), which is the main reason it trails quick sort.
+- **Benchmarking finds bugs.** The first version of `QuickSort` always picked the last element as pivot. On sorted input that is its worst case, and it crashed with a stack overflow at 10,000 items. It now uses a middle pivot with Hoare partitioning and recurses only into the smaller half.
+
+### Summing a CSV line
+
+| Method | 10 fields | 1,000 fields | Allocated (1,000 fields) |
+|---|---:|---:|---:|
+| `string.Split` + `int.Parse` | 438 ns | 61.4 µs | 70 KB |
+| [`SumCsv`](src/CSharpExercises/ModernCSharp/SpanExercises.cs) with `ReadOnlySpan<char>` | 239 ns | 33.4 µs | **0 B** |
+
+Slicing spans instead of creating substrings makes parsing about 45% faster and allocation-free.
+
+<sub>Measured with BenchmarkDotNet 0.15.8 `--job short` on .NET 10, Intel Core i7-6700HQ, Windows 10. Short runs are indicative; absolute numbers will differ on your machine.</sub>
+
 ## Roadmap
 
 Ideas for upcoming exercises:
@@ -67,7 +108,7 @@ Ideas for upcoming exercises:
 - [x] **Algorithms**: dynamic programming (coin change, longest common subsequence), Dijkstra
 - [x] **Design patterns**: strategy, observer, factory, decorator, builder
 - [x] **Modern C#**: records with `with` expressions, list patterns, generic math (`INumber<T>`), `Span<T>`
-- [ ] **Benchmarks**: comparing the sorting algorithms with BenchmarkDotNet
+- [x] **Benchmarks**: comparing the sorting algorithms with BenchmarkDotNet
 
 ## Author
 

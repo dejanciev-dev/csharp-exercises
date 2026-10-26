@@ -17,3 +17,5 @@ jobs:
       - run: dotnet restore csharp-exercises.slnx
       - run: dotnet build csharp-exercises.slnx --no-restore
       - run: dotnet test csharp-exercises.slnx --no-build --verbosity normal
+      - name: Smoke-test benchmarks
+        run: dotnet run -c Release --project benchmarks/CSharpExercises.Benchmarks -- --filter '*' --job dry
