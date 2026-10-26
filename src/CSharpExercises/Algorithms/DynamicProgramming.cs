@@ -34,6 +34,7 @@ public static class DynamicProgramming
     /// <summary>
     /// Number of different coin combinations that add up to <paramref name="amount"/>.
     /// Looping over coins on the outside counts 1+2 and 2+1 as the same combination.
+    /// Throws <see cref="OverflowException"/> when the count doesn't fit in a long, instead of silently wrapping around.
     /// </summary>
     public static long CountWays(int[] coins, int amount)
     {
@@ -46,7 +47,7 @@ public static class DynamicProgramming
         {
             for (var a = coin; a <= amount; a++)
             {
-                ways[a] += ways[a - coin];
+                ways[a] = checked(ways[a] + ways[a - coin]);
             }
         }
 

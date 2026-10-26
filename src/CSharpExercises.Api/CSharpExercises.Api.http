@@ -1,0 +1,60 @@
+# Sample requests. Open in Visual Studio, VS Code (REST Client) or Rider and click "Send Request".
+@api = http://localhost:5028
+
+GET {{api}}/
+
+###
+
+POST {{api}}/api/sort
+Content-Type: application/json
+
+{ "algorithm": "quick", "numbers": [5, 2, 9, 1, 5, 6] }
+
+###
+
+POST {{api}}/api/routes/shortest
+Content-Type: application/json
+
+{
+  "edges": [
+    { "from": "A", "to": "B", "weight": 4 },
+    { "from": "A", "to": "C", "weight": 2 },
+    { "from": "C", "to": "B", "weight": 1 },
+    { "from": "B", "to": "D", "weight": 5 },
+    { "from": "D", "to": "E", "weight": 2 },
+    { "from": "C", "to": "E", "weight": 10 }
+  ],
+  "from": "A",
+  "to": "E"
+}
+
+###
+
+GET {{api}}/api/coins?amount=11&coins=1&coins=2&coins=5
+
+###
+
+GET {{api}}/api/text/edit-distance?source=kitten&target=sitting
+
+###
+
+GET {{api}}/api/text/lcs?a=AGGTAB&b=GXTXAYB
+
+###
+
+GET {{api}}/api/text/palindrome?text=A man, a plan, a canal: Panama
+
+###
+
+GET {{api}}/api/shapes
+
+###
+
+POST {{api}}/api/shapes
+Content-Type: application/json
+
+{ "description": "rectangle 3 4.5" }
+
+###
+
+GET {{api}}/openapi/v1.json

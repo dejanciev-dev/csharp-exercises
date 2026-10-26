@@ -53,7 +53,8 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 ```
 csharp-exercises/
 ├── src/CSharpExercises/                    # exercise implementations, one folder per topic
-├── tests/CSharpExercises.Tests/            # xUnit tests for every exercise
+├── src/CSharpExercises.Api/                # ASP.NET Core minimal API built on the exercises
+├── tests/CSharpExercises.Tests/            # xUnit unit and integration tests
 └── benchmarks/CSharpExercises.Benchmarks/  # BenchmarkDotNet performance comparisons
 ```
 
@@ -66,6 +67,29 @@ git clone https://github.com/dejanciev-dev/csharp-exercises.git
 cd csharp-exercises
 dotnet test
 ```
+
+## Web API
+
+[CSharpExercises.Api](src/CSharpExercises.Api) puts the exercises together in an ASP.NET Core minimal API:
+
+| Endpoint | Uses |
+|---|---|
+| `POST /api/sort` | bubble / merge / quick sort |
+| `POST /api/routes/shortest` | Dijkstra (with the hand-written `MinHeap<T>`) |
+| `GET /api/coins` | dynamic programming coin change |
+| `GET /api/text/edit-distance`, `/lcs`, `/palindrome` | dynamic programming and string exercises |
+| `GET` / `POST /api/shapes` | shape factory (injected via DI) |
+
+Along the way it shows input validation with `ProblemDetails` responses, limits that stop expensive algorithms from being abused (bubble sort is capped at 5,000 numbers), rate limiting with the `SlidingWindowRateLimiter` from the testing exercises (`429` + `Retry-After`), options bound from `appsettings.json`, and an OpenAPI document.
+
+```bash
+dotnet run --project src/CSharpExercises.Api
+curl -X POST http://localhost:5028/api/sort -H "Content-Type: application/json" \
+     -d '{"algorithm":"quick","numbers":[5,2,9,1]}'
+# {"algorithm":"quick","count":4,"sorted":[1,2,5,9]}
+```
+
+More sample requests are in [CSharpExercises.Api.http](src/CSharpExercises.Api/CSharpExercises.Api.http), and the OpenAPI document is at `/openapi/v1.json` in Development. [Integration tests](tests/CSharpExercises.Tests/Api/ApiTests.cs) run the whole app in memory with `WebApplicationFactory`, swapping in a fake clock to test rate limiting without waiting.
 
 ## Benchmarks
 
@@ -120,7 +144,7 @@ Ideas for upcoming exercises:
 - [x] **LINQ internals**: rebuilding `Where`, `Select`, `OrderBy`, `GroupBy` and friends with `yield`
 - [x] **Dependency injection**: constructor injection, lifetimes, `Microsoft.Extensions.DependencyInjection`
 - [x] **Testing techniques**: test doubles and mocks, test data builders, testing time with `TimeProvider`
-- [ ] **Putting it together**: a small console app or web API built on these exercises
+- [x] **Putting it together**: a small console app or web API built on these exercises
 
 ## Author
 

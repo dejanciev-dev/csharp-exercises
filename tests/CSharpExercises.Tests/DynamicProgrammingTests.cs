@@ -20,6 +20,10 @@ public class DynamicProgrammingTests
         Assert.Equal(expected, DynamicProgramming.CountWays(coins, amount));
 
     [Fact]
+    public void CountWays_ThrowsInsteadOfOverflowing() =>
+        Assert.Throws<OverflowException>(() => DynamicProgramming.CountWays([.. Enumerable.Range(1, 100)], 10_000));
+
+    [Fact]
     public void Coins_RejectInvalidInput()
     {
         Assert.Throws<ArgumentException>(() => DynamicProgramming.MinCoins([0, 1], 5));

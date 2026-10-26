@@ -3,6 +3,7 @@
     <Project Path="benchmarks/CSharpExercises.Benchmarks/CSharpExercises.Benchmarks.csproj" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="src/CSharpExercises.Api/CSharpExercises.Api.csproj" />
     <Project Path="src/CSharpExercises/CSharpExercises.csproj" />
   </Folder>
   <Folder Name="/tests/">
