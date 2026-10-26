@@ -16,6 +16,10 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Collections** | [Stack&lt;T&gt;](src/CSharpExercises/Collections/Stack.cs) | generics, a growable array from scratch |
 | | [BracketValidator](src/CSharpExercises/Collections/BracketValidator.cs) | using a stack to check nesting |
 | | [LruCache&lt;TKey, TValue&gt;](src/CSharpExercises/Collections/LruCache.cs) | O(1) cache with a dictionary and a linked list |
+| | [SinglyLinkedList&lt;T&gt;](src/CSharpExercises/Collections/SinglyLinkedList.cs) | in-place reverse, fast/slow pointers, `IEnumerable<T>` |
+| | [BinarySearchTree&lt;T&gt;](src/CSharpExercises/Collections/BinarySearchTree.cs) | insert, delete with in-order successor, iterative in-order traversal |
+| | [MinHeap&lt;T&gt;](src/CSharpExercises/Collections/MinHeap.cs) | array-backed heap, sift up/down, priority queue via `IComparer<T>` |
+| | [Graph&lt;T&gt;](src/CSharpExercises/Collections/Graph.cs) | adjacency list, BFS, DFS, shortest path, topological sort |
 | **LINQ** | [LinqExercises](src/CSharpExercises/Linq/LinqExercises.cs) | `GroupBy`, `MaxBy`, `CountBy`, `Chunk`, records |
 | **OOP** | [Shapes](src/CSharpExercises/Oop/Shapes.cs) | abstraction, inheritance, polymorphism, primary constructors |
 | | [BankAccount](src/CSharpExercises/Oop/BankAccount.cs) | encapsulation, invariants, guard clauses |
@@ -48,7 +52,7 @@ dotnet test
 Ideas for upcoming exercises:
 
 - [x] **Async**: parallel downloads with `Task.WhenAll`, cancellation tokens, `IAsyncEnumerable`
-- [ ] **Data structures**: linked list, binary search tree, min-heap / priority queue, graph with BFS & DFS
+- [x] **Data structures**: linked list, binary search tree, min-heap / priority queue, graph with BFS & DFS
 - [ ] **Algorithms**: dynamic programming (coin change, longest common subsequence), Dijkstra
 - [ ] **Design patterns**: strategy, observer, factory, decorator, builder
 - [ ] **Modern C#**: records with `with` expressions, list patterns, generic math (`INumber<T>`), `Span<T>`
