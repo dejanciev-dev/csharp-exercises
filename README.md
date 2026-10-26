@@ -21,6 +21,8 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [MinHeap&lt;T&gt;](src/CSharpExercises/Collections/MinHeap.cs) | array-backed heap, sift up/down, priority queue via `IComparer<T>` |
 | | [Graph&lt;T&gt;](src/CSharpExercises/Collections/Graph.cs) | adjacency list, BFS, DFS, shortest path, topological sort |
 | **LINQ** | [LinqExercises](src/CSharpExercises/Linq/LinqExercises.cs) | `GroupBy`, `MaxBy`, `CountBy`, `Chunk`, records |
+| | [MyLinq](src/CSharpExercises/Linq/MyLinq.cs) | LINQ operators rebuilt with `yield`: deferred vs. immediate, streaming vs. buffering, eager argument checks |
+| | [RangeSequence](src/CSharpExercises/Linq/RangeSequence.cs) | `IEnumerable<T>` / `IEnumerator<T>` written by hand: what the compiler generates for `yield return` |
 | **OOP** | [Shapes](src/CSharpExercises/Oop/Shapes.cs) | abstraction, inheritance, polymorphism, primary constructors |
 | | [BankAccount](src/CSharpExercises/Oop/BankAccount.cs) | encapsulation, invariants, guard clauses |
 | **Design patterns** | [Strategy](src/CSharpExercises/Patterns/Strategy.cs) | swappable, composable discount rules for a shopping cart |
@@ -109,6 +111,10 @@ Ideas for upcoming exercises:
 - [x] **Design patterns**: strategy, observer, factory, decorator, builder
 - [x] **Modern C#**: records with `with` expressions, list patterns, generic math (`INumber<T>`), `Span<T>`
 - [x] **Benchmarks**: comparing the sorting algorithms with BenchmarkDotNet
+- [x] **LINQ internals**: rebuilding `Where`, `Select`, `OrderBy`, `GroupBy` and friends with `yield`
+- [ ] **Dependency injection**: constructor injection, lifetimes, `Microsoft.Extensions.DependencyInjection`
+- [ ] **Testing techniques**: test doubles and mocks, test data builders, testing time with `TimeProvider`
+- [ ] **Putting it together**: a small console app or web API built on these exercises
 
 ## Author
 
