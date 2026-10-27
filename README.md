@@ -20,6 +20,9 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [BinarySearchTree&lt;T&gt;](src/CSharpExercises/Collections/BinarySearchTree.cs) | insert, delete with in-order successor, iterative in-order traversal |
 | | [MinHeap&lt;T&gt;](src/CSharpExercises/Collections/MinHeap.cs) | array-backed heap, sift up/down, priority queue via `IComparer<T>` |
 | | [Graph&lt;T&gt;](src/CSharpExercises/Collections/Graph.cs) | adjacency list, BFS, DFS, shortest path, topological sort |
+| | [Trie](src/CSharpExercises/Collections/Trie.cs) | prefix tree for autocomplete, ranked suggestions, removal with pruning, iterative traversal |
+| | [UnionFind&lt;T&gt;](src/CSharpExercises/Collections/UnionFind.cs) | disjoint sets with union by size and path compression |
+| | [RingBuffer&lt;T&gt;](src/CSharpExercises/Collections/RingBuffer.cs) | fixed-size circular buffer, overwrite-oldest, moving average, fail-fast enumeration |
 | **LINQ** | [LinqExercises](src/CSharpExercises/Linq/LinqExercises.cs) | `GroupBy`, `MaxBy`, `CountBy`, `Chunk`, records |
 | | [MyLinq](src/CSharpExercises/Linq/MyLinq.cs) | LINQ operators rebuilt with `yield`: deferred vs. immediate, streaming vs. buffering, eager argument checks |
 | | [RangeSequence](src/CSharpExercises/Linq/RangeSequence.cs) | `IEnumerable<T>` / `IEnumerator<T>` written by hand: what the compiler generates for `yield return` |
@@ -40,6 +43,9 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Searching](src/CSharpExercises/Algorithms/Searching.cs) | binary search, Two Sum with a hash map |
 | | [DynamicProgramming](src/CSharpExercises/Algorithms/DynamicProgramming.cs) | coin change (min coins & number of ways), longest common subsequence, edit distance |
 | | [Dijkstra](src/CSharpExercises/Algorithms/Dijkstra.cs) | weighted shortest paths with a priority queue (reuses `MinHeap<T>`) |
+| | [MinimumSpanningTree](src/CSharpExercises/Algorithms/MinimumSpanningTree.cs) | Kruskal's algorithm (reuses `UnionFind<T>`) |
+| | [Backtracking](src/CSharpExercises/Algorithms/Backtracking.cs) | permutations without duplicates, subsets, combination sum with pruning, N-Queens |
+| | [Sudoku](src/CSharpExercises/Algorithms/Sudoku.cs) | backtracking with bit-mask candidates and fewest-options-first |
 | **Modern C#** | [Records](src/CSharpExercises/ModernCSharp/Records.cs) | immutable order with `with` expressions, value equality over collections |
 | | [ListPatterns](src/CSharpExercises/ModernCSharp/ListPatterns.cs) | `[first, .., last]`, slice patterns, a text command parser |
 | | [GenericMath](src/CSharpExercises/ModernCSharp/GenericMath.cs) | `INumber<T>`, `IBinaryInteger<T>`, a custom `Vector2D<T>` with operator interfaces |
@@ -174,6 +180,7 @@ Ideas for upcoming exercises:
 - [x] **Delegates & events**: function composition and memoization, event pitfalls, a middleware pipeline
 - [x] **Parsing**: a tokenizer and recursive-descent parser for arithmetic, evaluating and simplifying the syntax tree
 - [x] **Generics**: variance, static generic caches, constraints with static abstract interface members
+- [x] **More data structures & algorithms**: trie, union-find, ring buffer, Kruskal, backtracking, a Sudoku solver
 
 ## Author
 
