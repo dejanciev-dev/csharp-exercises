@@ -56,6 +56,13 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Immutable data** | [PersistentStack&lt;T&gt; / PersistentQueue&lt;T&gt;](src/CSharpExercises/Immutable/PersistentStack.cs) | structural sharing, O(1) versions, a queue from two stacks |
 | | [UndoableEditor](src/CSharpExercises/Immutable/UndoableEditor.cs) | undo/redo with snapshots of an `ImmutableList<T>` document, bounded history |
 | | [ReadOnlyExposure](src/CSharpExercises/Immutable/ReadOnlyExposure.cs) | `IReadOnlyList` vs `ReadOnlyCollection` vs `ImmutableArray`, `FrozenDictionary` |
+| **I/O & binary data** | [ReadingsFile](src/CSharpExercises/IO/ReadingsFile.cs) | a versioned binary format: magic number, `BinaryWriter`/`BinaryReader`, CRC-32 trailer, reading old versions, distrusting counts |
+| | [Crc32](src/CSharpExercises/IO/Crc32.cs) | table-driven checksum, computed incrementally |
+| | [PacketHeader](src/CSharpExercises/IO/PacketHeader.cs) | big-endian network headers with `BinaryPrimitives` on spans, validating untrusted input |
+| | [CountingStream](src/CSharpExercises/IO/CountingStream.cs) | a `Stream` decorator, measuring gzip size without buffering, constant-memory CSV processing |
+| **Numerics** | [FloatingPoint](src/CSharpExercises/Numerics/FloatingPoint.cs) | why `0.1 + 0.2 != 0.3`, tolerant comparison, Kahan summation, ULP distance |
+| | [Rational](src/CSharpExercises/Numerics/Rational.cs) | exact fractions on `BigInteger` with operator interfaces, a valid `default` |
+| | [NumberTheory](src/CSharpExercises/Numerics/NumberTheory.cs) | modular exponentiation with `UInt128`, modular inverse, deterministic Miller–Rabin, fast-doubling Fibonacci |
 | **Hashing** | [StableHash](src/CSharpExercises/Hashing/StableHash.cs) | why `string.GetHashCode()` is randomised, FNV-1a, a SplitMix64 finalizer |
 | | [OpenAddressingMap&lt;TKey, TValue&gt;](src/CSharpExercises/Hashing/OpenAddressingMap.cs) | a hash map from scratch: linear probing, tombstones, power-of-two sizing, load factor |
 | | [BloomFilter](src/CSharpExercises/Hashing/BloomFilter.cs) | probabilistic set membership, sizing formulas, double hashing |
@@ -206,6 +213,8 @@ Ideas for upcoming exercises:
 - [x] **Hashing**: stable hashes, a hash map from scratch, Bloom filters, consistent hashing
 - [x] **Caching**: expiration with `TimeProvider`, stampede protection, cache-aside with negative caching
 - [x] **Immutable data**: persistent collections with structural sharing, snapshot-based undo, what "read-only" really means
+- [x] **I/O & binary data**: a versioned file format with checksums, endianness, stream decorators, streaming processing
+- [x] **Numerics**: floating-point pitfalls, exact rationals, modular arithmetic and primality testing
 
 ## Author
 
