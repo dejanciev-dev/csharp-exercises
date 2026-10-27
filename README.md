@@ -74,9 +74,15 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Async** | [ParallelDownloader](src/CSharpExercises/Async/ParallelDownloader.cs) | `Task.WhenAll`, throttling with `SemaphoreSlim`, racing with `Task.WhenAny` |
 | | [Resilience](src/CSharpExercises/Async/Resilience.cs) | retry with exponential backoff, timeouts via `CancellationToken` |
 | | [AsyncStreams](src/CSharpExercises/Async/AsyncStreams.cs) | `IAsyncEnumerable`, `[EnumeratorCancellation]`, producer/consumer with `Channel<T>` |
+| | [AsyncCoordination](src/CSharpExercises/Async/AsyncCoordination.cs) | `AsyncLock` across awaits, `AsyncManualResetEvent` with `RunContinuationsAsynchronously`, `AsyncLazy<T>` with retry |
 | **Concurrency** | [Counters](src/CSharpExercises/Concurrency/Counters.cs) | lost updates from `++`, `lock` with `System.Threading.Lock`, `Interlocked`, a lock-free max with compare-and-swap |
 | | [BoundedBuffer&lt;T&gt;](src/CSharpExercises/Concurrency/BoundedBuffer.cs) | blocking producer/consumer queue with `Monitor.Wait` / `PulseAll` |
 | | [OnceCache&lt;TKey, TValue&gt;](src/CSharpExercises/Concurrency/OnceCache.cs) | `ConcurrentDictionary` + `Lazy<T>` so the factory runs once per key, retry after a failed build |
+| | [LockFreeStack&lt;T&gt;](src/CSharpExercises/Concurrency/LockFreeStack.cs) | Treiber stack with compare-and-swap, `SpinWait` back-off, why .NET has no ABA problem here |
+| **Domain modelling** | [PrefixedIds](src/CSharpExercises/Domain/PrefixedIds.cs) | strongly typed `cus_…` / `ord_…` ids with static abstract members, time-ordered `Guid.CreateVersion7` |
+| | [ValueObjects](src/CSharpExercises/Domain/ValueObjects.cs) | always-valid `EmailAddress` via `Result<T>`, `DateRange` with overlap, intersection and merging |
+| | [Allocation](src/CSharpExercises/Domain/Allocation.cs) | splitting money without losing cents: largest-remainder method, by ratios, refunds |
+| | [Specification&lt;T&gt;](src/CSharpExercises/Domain/Specification.cs) | composable business rules as expression trees (`&`, `\|`, `!`), parameter rebinding, usable with `IQueryable` |
 | **Error handling** | [Result&lt;T&gt;](src/CSharpExercises/ErrorHandling/Result.cs) | errors as values: `Map`, `Bind`, `Ensure`, `Match`, LINQ query syntax, combining independent results |
 | | [SignupValidator](src/CSharpExercises/ErrorHandling/SignupValidator.cs) | form validation that fails fast vs. reports every error, cross-field rules |
 | | [ExceptionHandling](src/CSharpExercises/ErrorHandling/ExceptionHandling.cs) | every failure from `Task.WhenAll`, cleanup steps that all run, `ExceptionDispatchInfo` to keep stack traces |
@@ -215,6 +221,8 @@ Ideas for upcoming exercises:
 - [x] **Immutable data**: persistent collections with structural sharing, snapshot-based undo, what "read-only" really means
 - [x] **I/O & binary data**: a versioned file format with checksums, endianness, stream decorators, streaming processing
 - [x] **Numerics**: floating-point pitfalls, exact rationals, modular arithmetic and primality testing
+- [x] **Domain modelling**: strongly typed ids, value objects, money allocation, the specification pattern
+- [x] **Async coordination**: async locks and events, async lazy initialisation, a lock-free stack
 
 ## Author
 
