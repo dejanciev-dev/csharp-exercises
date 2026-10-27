@@ -50,6 +50,12 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Backtracking](src/CSharpExercises/Algorithms/Backtracking.cs) | permutations without duplicates, subsets, combination sum with pruning, N-Queens |
 | | [Sudoku](src/CSharpExercises/Algorithms/Sudoku.cs) | backtracking with bit-mask candidates and fewest-options-first |
 | | [StringSearch](src/CSharpExercises/Algorithms/StringSearch.cs) | Knuth–Morris–Pratt substring search in O(n + m) |
+| **Caching** | [TtlCache&lt;TKey, TValue&gt;](src/CSharpExercises/Caching/TtlCache.cs) | absolute and sliding expiration on `TimeProvider`, lazy expiry, compaction, hit/miss counts |
+| | [SingleFlight&lt;TKey, TValue&gt;](src/CSharpExercises/Caching/SingleFlight.cs) | stampede protection: concurrent requests for a key share one load, per-caller cancellation |
+| | [CachedLookup&lt;TKey, TValue&gt;](src/CSharpExercises/Caching/CachedLookup.cs) | cache-aside with negative caching and invalidation |
+| **Immutable data** | [PersistentStack&lt;T&gt; / PersistentQueue&lt;T&gt;](src/CSharpExercises/Immutable/PersistentStack.cs) | structural sharing, O(1) versions, a queue from two stacks |
+| | [UndoableEditor](src/CSharpExercises/Immutable/UndoableEditor.cs) | undo/redo with snapshots of an `ImmutableList<T>` document, bounded history |
+| | [ReadOnlyExposure](src/CSharpExercises/Immutable/ReadOnlyExposure.cs) | `IReadOnlyList` vs `ReadOnlyCollection` vs `ImmutableArray`, `FrozenDictionary` |
 | **Hashing** | [StableHash](src/CSharpExercises/Hashing/StableHash.cs) | why `string.GetHashCode()` is randomised, FNV-1a, a SplitMix64 finalizer |
 | | [OpenAddressingMap&lt;TKey, TValue&gt;](src/CSharpExercises/Hashing/OpenAddressingMap.cs) | a hash map from scratch: linear probing, tombstones, power-of-two sizing, load factor |
 | | [BloomFilter](src/CSharpExercises/Hashing/BloomFilter.cs) | probabilistic set membership, sizing formulas, double hashing |
@@ -198,6 +204,8 @@ Ideas for upcoming exercises:
 - [x] **Dates & times**: `DateOnly` calendar math, business days, DST-safe time zone conversion, recurring schedules
 - [x] **Text processing**: source-generated regex, a template engine, Unicode grapheme clusters, KMP search
 - [x] **Hashing**: stable hashes, a hash map from scratch, Bloom filters, consistent hashing
+- [x] **Caching**: expiration with `TimeProvider`, stampede protection, cache-aside with negative caching
+- [x] **Immutable data**: persistent collections with structural sharing, snapshot-based undo, what "read-only" really means
 
 ## Author
 
