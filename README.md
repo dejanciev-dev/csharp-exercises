@@ -53,6 +53,11 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Error handling** | [Result&lt;T&gt;](src/CSharpExercises/ErrorHandling/Result.cs) | errors as values: `Map`, `Bind`, `Ensure`, `Match`, LINQ query syntax, combining independent results |
 | | [SignupValidator](src/CSharpExercises/ErrorHandling/SignupValidator.cs) | form validation that fails fast vs. reports every error, cross-field rules |
 | | [ExceptionHandling](src/CSharpExercises/ErrorHandling/ExceptionHandling.cs) | every failure from `Task.WhenAll`, cleanup steps that all run, `ExceptionDispatchInfo` to keep stack traces |
+| **Reflection** | [PropertyAccessor](src/CSharpExercises/Reflection/PropertyAccessor.cs) | expression trees compiled into fast getters and setters instead of `PropertyInfo.GetValue` |
+| | [AttributeValidator](src/CSharpExercises/Reflection/AttributeValidator.cs) | custom attributes (`[Required]`, `[Range]`, `[MaxLength]`) read once per type and cached |
+| | [CommandRegistry](src/CSharpExercises/Reflection/CommandRegistry.cs) | plugin discovery: scan assemblies for `[Command]` classes, create them with `Activator` |
+| **Serialization** | [Money](src/CSharpExercises/Serialization/Money.cs) | custom `JsonConverter<T>` writing a value object as `"12.50 EUR"`, errors with the JSON path |
+| | [OrderEvents](src/CSharpExercises/Serialization/OrderEvents.cs) | polymorphic JSON with `[JsonDerivedType]`, source-generated `JsonSerializerContext`, strict unknown-member handling, event replay |
 
 ## Project structure
 
@@ -153,6 +158,8 @@ Ideas for upcoming exercises:
 - [x] **Putting it together**: a small console app or web API built on these exercises
 - [x] **Concurrency**: race conditions, `lock` vs `Interlocked`, a blocking queue with `Monitor`, run-once caching
 - [x] **Error handling**: a `Result<T>` type, validation that collects every error, exceptions that are easy to lose
+- [x] **Reflection**: custom attributes, expression trees, discovering plugins in assemblies
+- [x] **Serialization**: `System.Text.Json` custom converters, polymorphism and source generation
 
 ## Author
 
