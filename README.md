@@ -63,6 +63,11 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Delegates & events** | [Functional](src/CSharpExercises/Delegates/Functional.cs) | composing functions, currying, partial application, memoizing recursive functions |
 | | [TemperatureSensor](src/CSharpExercises/Delegates/TemperatureSensor.cs) | the standard event pattern, isolating handlers that throw, unsubscribing lambdas with an `IDisposable` token |
 | | [MiddlewarePipeline](src/CSharpExercises/Delegates/MiddlewarePipeline.cs) | ASP.NET Core-style middleware built by composing `next => handler` delegates, short-circuiting |
+| **Parsing** | [Lexer](src/CSharpExercises/Parsing/Lexer.cs) | turning text into tokens, syntax errors with positions |
+| | [Parser](src/CSharpExercises/Parsing/Parser.cs) | recursive descent: precedence and associativity from the grammar, a syntax tree of records |
+| | [ExpressionTools](src/CSharpExercises/Parsing/ExpressionTools.cs) | evaluating with variables and functions, constant folding, printing with minimal parentheses |
+| **Generics** | [NotificationBus](src/CSharpExercises/Generics/NotificationBus.cs) | contravariant handlers (`in T`), dispatch on the runtime type, covariance and the array covariance trap |
+| | [EnumInfo&lt;TEnum&gt;](src/CSharpExercises/Generics/EnumInfo.cs) | a static generic class as a per-type cache, `struct, Enum` constraint, `IParsable<T>` with static abstract members |
 
 ## Project structure
 
@@ -167,6 +172,8 @@ Ideas for upcoming exercises:
 - [x] **Serialization**: `System.Text.Json` custom converters, polymorphism and source generation
 - [x] **Resource management**: `IDisposable` and `IAsyncDisposable` done right, object and array pooling
 - [x] **Delegates & events**: function composition and memoization, event pitfalls, a middleware pipeline
+- [x] **Parsing**: a tokenizer and recursive-descent parser for arithmetic, evaluating and simplifying the syntax tree
+- [x] **Generics**: variance, static generic caches, constraints with static abstract interface members
 
 ## Author
 

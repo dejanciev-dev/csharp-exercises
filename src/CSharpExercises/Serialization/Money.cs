@@ -9,19 +9,30 @@ namespace CSharpExercises.Serialization;
 /// thanks to <see cref="MoneyJsonConverter"/>.
 /// </summary>
 [JsonConverter(typeof(MoneyJsonConverter))]
-public readonly record struct Money(decimal Amount, string Currency)
+public readonly record struct Money(decimal Amount, string Currency) : IParsable<Money>
 {
-    public static Money Parse(string text)
+    public static Money Parse(string text) => Parse(text, null);
+
+    // IParsable<Money> lets generic code such as GenericParsing.ParseList<T> parse money too.
+    // The text format is fixed (invariant culture), so the provider is ignored.
+    public static Money Parse(string s, IFormatProvider? provider) =>
+        TryParse(s, provider, out var money)
+            ? money
+            : throw new FormatException($"'{s}' is not an amount followed by a currency code, like '12.50 EUR'.");
+
+    public static bool TryParse(string? s, IFormatProvider? provider, out Money result)
     {
-        var parts = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        result = default;
+        var parts = s?.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         if (parts is not [var amount, var currency]
             || !decimal.TryParse(amount, NumberStyles.Number, CultureInfo.InvariantCulture, out var value)
             || currency.Length != 3 || !currency.All(char.IsAsciiLetterUpper))
         {
-            throw new FormatException($"'{text}' is not an amount followed by a currency code, like '12.50 EUR'.");
+            return false;
         }
 
-        return new Money(value, currency);
+        result = new Money(value, currency);
+        return true;
     }
 
     public static Money operator +(Money left, Money right) =>
