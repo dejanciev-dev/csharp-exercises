@@ -13,6 +13,9 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Basics** | [FizzBuzz](src/CSharpExercises/Basics/FizzBuzz.cs) | tuple pattern matching, switch expressions |
 | | [MathHelpers](src/CSharpExercises/Basics/MathHelpers.cs) | primes, factorial, Fibonacci (`yield return`), GCD |
 | **Strings** | [StringExercises](src/CSharpExercises/Strings/StringExercises.cs) | reverse, palindrome, anagram, run-length encoding, word frequency |
+| | [LogParser](src/CSharpExercises/Strings/LogParser.cs) | `[GeneratedRegex]` with named groups, key=value extraction, redacting emails and card numbers |
+| | [TemplateEngine](src/CSharpExercises/Strings/TemplateEngine.cs) | `{{ name \| filter }}` placeholders with `Regex.Replace` and a `MatchEvaluator`, fail-loud on missing values |
+| | [UnicodeText](src/CSharpExercises/Strings/UnicodeText.cs) | grapheme-aware length, reverse and truncate, slugs via `NormalizationForm.FormD`, accent-insensitive compare |
 | **Collections** | [Stack&lt;T&gt;](src/CSharpExercises/Collections/Stack.cs) | generics, a growable array from scratch |
 | | [BracketValidator](src/CSharpExercises/Collections/BracketValidator.cs) | using a stack to check nesting |
 | | [LruCache&lt;TKey, TValue&gt;](src/CSharpExercises/Collections/LruCache.cs) | O(1) cache with a dictionary and a linked list |
@@ -46,6 +49,11 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [MinimumSpanningTree](src/CSharpExercises/Algorithms/MinimumSpanningTree.cs) | Kruskal's algorithm (reuses `UnionFind<T>`) |
 | | [Backtracking](src/CSharpExercises/Algorithms/Backtracking.cs) | permutations without duplicates, subsets, combination sum with pruning, N-Queens |
 | | [Sudoku](src/CSharpExercises/Algorithms/Sudoku.cs) | backtracking with bit-mask candidates and fewest-options-first |
+| | [StringSearch](src/CSharpExercises/Algorithms/StringSearch.cs) | Knuth–Morris–Pratt substring search in O(n + m) |
+| **Hashing** | [StableHash](src/CSharpExercises/Hashing/StableHash.cs) | why `string.GetHashCode()` is randomised, FNV-1a, a SplitMix64 finalizer |
+| | [OpenAddressingMap&lt;TKey, TValue&gt;](src/CSharpExercises/Hashing/OpenAddressingMap.cs) | a hash map from scratch: linear probing, tombstones, power-of-two sizing, load factor |
+| | [BloomFilter](src/CSharpExercises/Hashing/BloomFilter.cs) | probabilistic set membership, sizing formulas, double hashing |
+| | [ConsistentHashRing&lt;TNode&gt;](src/CSharpExercises/Hashing/ConsistentHashRing.cs) | sharding with virtual nodes: adding a server moves ~1/n of the keys instead of most of them |
 | **Modern C#** | [Records](src/CSharpExercises/ModernCSharp/Records.cs) | immutable order with `with` expressions, value equality over collections |
 | | [ListPatterns](src/CSharpExercises/ModernCSharp/ListPatterns.cs) | `[first, .., last]`, slice patterns, a text command parser |
 | | [GenericMath](src/CSharpExercises/ModernCSharp/GenericMath.cs) | `INumber<T>`, `IBinaryInteger<T>`, a custom `Vector2D<T>` with operator interfaces |
@@ -188,6 +196,8 @@ Ideas for upcoming exercises:
 - [x] **More data structures & algorithms**: trie, union-find, ring buffer, Kruskal, backtracking, a Sudoku solver
 - [x] **State machines**: table-driven with guards, a document workflow, a pure event-driven vending machine
 - [x] **Dates & times**: `DateOnly` calendar math, business days, DST-safe time zone conversion, recurring schedules
+- [x] **Text processing**: source-generated regex, a template engine, Unicode grapheme clusters, KMP search
+- [x] **Hashing**: stable hashes, a hash map from scratch, Bloom filters, consistent hashing
 
 ## Author
 
