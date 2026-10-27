@@ -58,6 +58,11 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [CommandRegistry](src/CSharpExercises/Reflection/CommandRegistry.cs) | plugin discovery: scan assemblies for `[Command]` classes, create them with `Activator` |
 | **Serialization** | [Money](src/CSharpExercises/Serialization/Money.cs) | custom `JsonConverter<T>` writing a value object as `"12.50 EUR"`, errors with the JSON path |
 | | [OrderEvents](src/CSharpExercises/Serialization/OrderEvents.cs) | polymorphic JSON with `[JsonDerivedType]`, source-generated `JsonSerializerContext`, strict unknown-member handling, event replay |
+| **Resource management** | [Disposables](src/CSharpExercises/Resources/Disposables.cs) | idempotent `Dispose`, `ObjectDisposedException`, disposing in reverse order, `IAsyncDisposable` with `await using` |
+| | [Pooling](src/CSharpExercises/Resources/Pooling.cs) | an object pool with allocation-free struct leases, renting buffers from `ArrayPool<T>.Shared` |
+| **Delegates & events** | [Functional](src/CSharpExercises/Delegates/Functional.cs) | composing functions, currying, partial application, memoizing recursive functions |
+| | [TemperatureSensor](src/CSharpExercises/Delegates/TemperatureSensor.cs) | the standard event pattern, isolating handlers that throw, unsubscribing lambdas with an `IDisposable` token |
+| | [MiddlewarePipeline](src/CSharpExercises/Delegates/MiddlewarePipeline.cs) | ASP.NET Core-style middleware built by composing `next => handler` delegates, short-circuiting |
 
 ## Project structure
 
@@ -160,6 +165,8 @@ Ideas for upcoming exercises:
 - [x] **Error handling**: a `Result<T>` type, validation that collects every error, exceptions that are easy to lose
 - [x] **Reflection**: custom attributes, expression trees, discovering plugins in assemblies
 - [x] **Serialization**: `System.Text.Json` custom converters, polymorphism and source generation
+- [x] **Resource management**: `IDisposable` and `IAsyncDisposable` done right, object and array pooling
+- [x] **Delegates & events**: function composition and memoization, event pitfalls, a middleware pipeline
 
 ## Author
 
