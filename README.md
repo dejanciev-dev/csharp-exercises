@@ -47,6 +47,12 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Async** | [ParallelDownloader](src/CSharpExercises/Async/ParallelDownloader.cs) | `Task.WhenAll`, throttling with `SemaphoreSlim`, racing with `Task.WhenAny` |
 | | [Resilience](src/CSharpExercises/Async/Resilience.cs) | retry with exponential backoff, timeouts via `CancellationToken` |
 | | [AsyncStreams](src/CSharpExercises/Async/AsyncStreams.cs) | `IAsyncEnumerable`, `[EnumeratorCancellation]`, producer/consumer with `Channel<T>` |
+| **Concurrency** | [Counters](src/CSharpExercises/Concurrency/Counters.cs) | lost updates from `++`, `lock` with `System.Threading.Lock`, `Interlocked`, a lock-free max with compare-and-swap |
+| | [BoundedBuffer&lt;T&gt;](src/CSharpExercises/Concurrency/BoundedBuffer.cs) | blocking producer/consumer queue with `Monitor.Wait` / `PulseAll` |
+| | [OnceCache&lt;TKey, TValue&gt;](src/CSharpExercises/Concurrency/OnceCache.cs) | `ConcurrentDictionary` + `Lazy<T>` so the factory runs once per key, retry after a failed build |
+| **Error handling** | [Result&lt;T&gt;](src/CSharpExercises/ErrorHandling/Result.cs) | errors as values: `Map`, `Bind`, `Ensure`, `Match`, LINQ query syntax, combining independent results |
+| | [SignupValidator](src/CSharpExercises/ErrorHandling/SignupValidator.cs) | form validation that fails fast vs. reports every error, cross-field rules |
+| | [ExceptionHandling](src/CSharpExercises/ErrorHandling/ExceptionHandling.cs) | every failure from `Task.WhenAll`, cleanup steps that all run, `ExceptionDispatchInfo` to keep stack traces |
 
 ## Project structure
 
@@ -145,6 +151,8 @@ Ideas for upcoming exercises:
 - [x] **Dependency injection**: constructor injection, lifetimes, `Microsoft.Extensions.DependencyInjection`
 - [x] **Testing techniques**: test doubles and mocks, test data builders, testing time with `TimeProvider`
 - [x] **Putting it together**: a small console app or web API built on these exercises
+- [x] **Concurrency**: race conditions, `lock` vs `Interlocked`, a blocking queue with `Monitor`, run-once caching
+- [x] **Error handling**: a `Result<T>` type, validation that collects every error, exceptions that are easy to lose
 
 ## Author
 
