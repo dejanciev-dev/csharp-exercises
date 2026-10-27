@@ -69,6 +69,11 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Delegates & events** | [Functional](src/CSharpExercises/Delegates/Functional.cs) | composing functions, currying, partial application, memoizing recursive functions |
 | | [TemperatureSensor](src/CSharpExercises/Delegates/TemperatureSensor.cs) | the standard event pattern, isolating handlers that throw, unsubscribing lambdas with an `IDisposable` token |
 | | [MiddlewarePipeline](src/CSharpExercises/Delegates/MiddlewarePipeline.cs) | ASP.NET Core-style middleware built by composing `next => handler` delegates, short-circuiting |
+| **State machines** | [StateMachine&lt;TState, TTrigger&gt;](src/CSharpExercises/StateMachines/StateMachine.cs) | table-driven transitions with a fluent API, guards with reasons, entry/exit actions, history |
+| | [DocumentWorkflow](src/CSharpExercises/StateMachines/DocumentWorkflow.cs) | draft → review → approved → published, approval quorum, rules that read like requirements |
+| | [VendingMachine](src/CSharpExercises/StateMachines/VendingMachine.cs) | a pure `(state, event) => (state, effects)` function with pattern matching, replayable and immutable |
+| **Dates & times** | [CalendarMath](src/CSharpExercises/DatesAndTimes/CalendarMath.cs) | `DateOnly`, age with 29 February birthdays, nth weekday of a month, Easter, business days with holidays |
+| | [TimeZones](src/CSharpExercises/DatesAndTimes/TimeZones.cs) | skipped and repeated local times around DST, "same time tomorrow", shared working hours, a weekly schedule |
 | **Parsing** | [Lexer](src/CSharpExercises/Parsing/Lexer.cs) | turning text into tokens, syntax errors with positions |
 | | [Parser](src/CSharpExercises/Parsing/Parser.cs) | recursive descent: precedence and associativity from the grammar, a syntax tree of records |
 | | [ExpressionTools](src/CSharpExercises/Parsing/ExpressionTools.cs) | evaluating with variables and functions, constant folding, printing with minimal parentheses |
@@ -181,6 +186,8 @@ Ideas for upcoming exercises:
 - [x] **Parsing**: a tokenizer and recursive-descent parser for arithmetic, evaluating and simplifying the syntax tree
 - [x] **Generics**: variance, static generic caches, constraints with static abstract interface members
 - [x] **More data structures & algorithms**: trie, union-find, ring buffer, Kruskal, backtracking, a Sudoku solver
+- [x] **State machines**: table-driven with guards, a document workflow, a pure event-driven vending machine
+- [x] **Dates & times**: `DateOnly` calendar math, business days, DST-safe time zone conversion, recurring schedules
 
 ## Author
 
