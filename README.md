@@ -106,6 +106,12 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [ExpressionTools](src/CSharpExercises/Parsing/ExpressionTools.cs) | evaluating with variables and functions, constant folding, printing with minimal parentheses |
 | **Generics** | [NotificationBus](src/CSharpExercises/Generics/NotificationBus.cs) | contravariant handlers (`in T`), dispatch on the runtime type, covariance and the array covariance trap |
 | | [EnumInfo&lt;TEnum&gt;](src/CSharpExercises/Generics/EnumInfo.cs) | a static generic class as a per-type cache, `struct, Enum` constraint, `IParsable<T>` with static abstract members |
+| **Compression & encoding** | [Varint](src/CSharpExercises/Compression/Varint.cs) | LEB128 variable-length integers, ZigZag for negatives, delta-encoding sorted timestamps, overflow-safe decoding |
+| | [Huffman](src/CSharpExercises/Compression/Huffman.cs) | optimal prefix codes with `PriorityQueue`, canonical codes so the header stores only lengths, bit-level reading and writing |
+| | [Base32](src/CSharpExercises/Compression/Base32.cs) | Crockford's alphabet for codes humans type, forgiving decoding, a mod-37 check symbol that catches typos and swaps |
+| **Diffing** | [MyersDiff](src/CSharpExercises/Diffing/MyersDiff.cs) | the shortest edit script in O((N+M)·D), the algorithm behind `git diff`, walking the path back through saved frontiers |
+| | [UnifiedDiff](src/CSharpExercises/Diffing/UnifiedDiff.cs) | `diff -u` output: hunks with context, merging nearby changes, `@@ -l,s +l,s @@` headers, parsing a diff back |
+| | [Patch](src/CSharpExercises/Diffing/Patch.cs) | applying hunks to a file that changed since the diff was made: nearest-match search, offsets, conflicts |
 
 ## Project structure
 
@@ -223,6 +229,8 @@ Ideas for upcoming exercises:
 - [x] **Numerics**: floating-point pitfalls, exact rationals, modular arithmetic and primality testing
 - [x] **Domain modelling**: strongly typed ids, value objects, money allocation, the specification pattern
 - [x] **Async coordination**: async locks and events, async lazy initialisation, a lock-free stack
+- [x] **Compression & encoding**: varints with ZigZag and deltas, Huffman coding, human-friendly Base32 with check symbols
+- [x] **Diffing**: the Myers diff algorithm, unified diff output, applying patches that have drifted
 
 ## Author
 
