@@ -217,6 +217,85 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Damm](src/CSharpExercises/Checksums/Damm.cs) | a quasigroup table that catches every single error and adjacent swap |
 | **Finance** | [Amortization](src/CSharpExercises/Finance/Amortization.cs) | annuity payments, a cent-exact repayment schedule, the effect of paying extra |
 | | [CashFlows](src/CSharpExercises/Finance/CashFlows.cs) | NPV, IRR with Newton's method and a bisection fallback, payback period, compounding |
+| **Combinatorics** | [Binomial](src/CSharpExercises/Combinatorics/Binomial.cs) | exact binomials without factorials, Pascal's triangle, Lucas' theorem mod a prime |
+| | [Permutations](src/CSharpExercises/Combinatorics/Permutations.cs) | next permutation in place, rank and unrank via factorial base, derangements |
+| | [Combinations](src/CSharpExercises/Combinatorics/Combinations.cs) | lazy k-combinations, cartesian products as an odometer, listing change-making ways |
+| | [Partitions](src/CSharpExercises/Combinatorics/Partitions.cs) | integer partitions, Stirling numbers of the second kind, Bell numbers |
+| | [Catalan](src/CSharpExercises/Combinatorics/Catalan.cs) | balanced brackets and binary tree shapes |
+| | [InclusionExclusion](src/CSharpExercises/Combinatorics/InclusionExclusion.cs) | counting divisible numbers over bit-mask subsets, surjections, Euler's totient |
+| **Fuzzy matching** | [JaroWinkler](src/CSharpExercises/Fuzzy/JaroWinkler.cs) | name similarity with transpositions and a prefix bonus |
+| | [DamerauLevenshtein](src/CSharpExercises/Fuzzy/DamerauLevenshtein.cs) | edit distance counting swaps, a banded version with early exit |
+| | [NGramSimilarity](src/CSharpExercises/Fuzzy/NGramSimilarity.cs) | Jaccard and Dice over n-grams, a trigram index |
+| | [BkTree](src/CSharpExercises/Fuzzy/BkTree.cs) | fuzzy dictionary lookup pruned by the triangle inequality |
+| | [SpellChecker](src/CSharpExercises/Fuzzy/SpellChecker.cs) | Norvig's corrector: candidate edits ranked by word frequency |
+| | [MinHash](src/CSharpExercises/Fuzzy/MinHash.cs) | estimating Jaccard similarity of documents from small signatures |
+| **Search engine** | [Tokenizer](src/CSharpExercises/Search/Tokenizer.cs) | lower-casing, accent folding, stop words, a light stemmer, positions |
+| | [InvertedIndex](src/CSharpExercises/Search/InvertedIndex.cs) | posting lists, merge intersection, NOT, phrase queries with positions |
+| | [Ranking](src/CSharpExercises/Search/Ranking.cs) | TF-IDF and BM25 with term saturation and length normalisation |
+| | [QueryParser](src/CSharpExercises/Search/QueryParser.cs) | `a AND (b OR "c d") -e` parsed into a tree and evaluated |
+| | [Snippets](src/CSharpExercises/Search/Snippets.cs) | best matching window with highlighted terms |
+| | [Autocomplete](src/CSharpExercises/Search/Autocomplete.cs) | prefix ranges by binary search, top-k by popularity |
+| **Operating systems** | [CpuScheduling](src/CSharpExercises/OperatingSystems/CpuScheduling.cs) | FCFS, shortest job first, round-robin, Gantt charts and waiting times |
+| | [PageReplacement](src/CSharpExercises/OperatingSystems/PageReplacement.cs) | FIFO, LRU, optimal and clock, Belady's anomaly |
+| | [BankersAlgorithm](src/CSharpExercises/OperatingSystems/BankersAlgorithm.cs) | deadlock avoidance with safe sequences |
+| | [DiskScheduling](src/CSharpExercises/OperatingSystems/DiskScheduling.cs) | FCFS, shortest seek, SCAN (elevator), C-SCAN |
+| | [FreeListAllocator](src/CSharpExercises/OperatingSystems/FreeListAllocator.cs) | first, best and worst fit, splitting, coalescing, fragmentation |
+| | [BuddyAllocator](src/CSharpExercises/OperatingSystems/BuddyAllocator.cs) | power-of-two blocks, buddies found by flipping one bit |
+| **Networking** | [Ipv4Network](src/CSharpExercises/Networking/Ipv4Network.cs) | CIDR parsing, membership, subnetting, summarising a range into blocks |
+| | [RoutingTable](src/CSharpExercises/Networking/RoutingTable.cs) | longest prefix match in a binary trie |
+| | [InternetChecksum](src/CSharpExercises/Networking/InternetChecksum.cs) | RFC 1071 ones'-complement checksum, incremental updates, an IPv4 header |
+| | [HttpMessageParser](src/CSharpExercises/Networking/HttpMessageParser.cs) | incremental HTTP/1.1 parsing, chunked bodies, limits, smuggling checks |
+| | [Backoff](src/CSharpExercises/Networking/Backoff.cs) | exponential backoff with full, equal and decorrelated jitter, measured spikes |
+| | [UriTemplate](src/CSharpExercises/Networking/UriTemplate.cs) | RFC 6570 expansion with operators and escaping |
+| **Distributed systems** | [LamportClock](src/CSharpExercises/Distributed/LamportClock.cs) | logical timestamps and a causally consistent total order |
+| | [VectorClock](src/CSharpExercises/Distributed/VectorClock.cs) | detecting concurrent writes, keeping siblings in a replica |
+| | [Crdts](src/CSharpExercises/Distributed/Crdts.cs) | G-counter, PN-counter, LWW register, observed-remove set |
+| | [MerkleTree](src/CSharpExercises/Distributed/MerkleTree.cs) | finding differing blocks in O(log n) comparisons, inclusion proofs |
+| | [SnowflakeId](src/CSharpExercises/Distributed/SnowflakeId.cs) | time-sorted 64-bit ids without coordination, clock-skew protection |
+| | [TwoPhaseCommit](src/CSharpExercises/Distributed/TwoPhaseCommit.cs) | prepare and vote, commit or abort everyone, timeouts as no votes |
+| **Event sourcing** | [EventStore](src/CSharpExercises/EventSourcing/EventStore.cs) | append-only streams, optimistic concurrency, global positions |
+| | [InventoryItem](src/CSharpExercises/EventSourcing/InventoryItem.cs) | an aggregate rebuilt from events, decisions separate from state changes |
+| | [Projections](src/CSharpExercises/EventSourcing/Projections.cs) | read models that catch up idempotently, a daily report |
+| | [Snapshots](src/CSharpExercises/EventSourcing/Snapshots.cs) | loading from a snapshot plus the events after it |
+| | [Saga](src/CSharpExercises/EventSourcing/Saga.cs) | multi-step transactions with compensation in reverse order |
+| | [Upcasting](src/CSharpExercises/EventSourcing/Upcasting.cs) | converting old event versions step by step when reading |
+| **Spatial indexes** | [QuadTree&lt;T&gt;](src/CSharpExercises/Spatial/QuadTree.cs) | adaptive subdivision, range and radius queries |
+| | [KdTree&lt;T&gt;](src/CSharpExercises/Spatial/KdTree.cs) | nearest and k-nearest neighbours with pruning |
+| | [GeoHash](src/CSharpExercises/Spatial/GeoHash.cs) | interleaved lat/long bits as base-32 strings, neighbouring cells |
+| | [SpatialHashGrid](src/CSharpExercises/Spatial/SpatialHashGrid.cs) | collision broad phase in near-linear time |
+| | [IntervalTree&lt;T&gt;](src/CSharpExercises/Spatial/IntervalTree.cs) | overlap queries with subtree max-end pruning |
+| **Image processing** | [Colors](src/CSharpExercises/Imaging/Colors.cs) | hex, RGB ↔ HSL, mixing, WCAG contrast ratio and readable text colour |
+| | [Convolution](src/CSharpExercises/Imaging/Convolution.cs) | blur, sharpen, Sobel edges, a summed-area-table box blur |
+| | [Dithering](src/CSharpExercises/Imaging/Dithering.cs) | threshold vs Floyd–Steinberg vs ordered (Bayer) dithering |
+| | [Histogram](src/CSharpExercises/Imaging/Histogram.cs) | equalisation, contrast stretch, Otsu's threshold |
+| | [Resampling](src/CSharpExercises/Imaging/Resampling.cs) | nearest neighbour and bilinear resizing, fitting thumbnails |
+| | [Netpbm](src/CSharpExercises/Imaging/Netpbm.cs) | reading and writing PGM images (ASCII and binary) |
+| **Signal processing** | [Fourier](src/CSharpExercises/Signals/Fourier.cs) | DFT vs Cooley–Tukey FFT, dominant frequencies, polynomial multiplication |
+| | [Dtmf](src/CSharpExercises/Signals/Dtmf.cs) | generating and decoding phone tones with the Goertzel algorithm |
+| | [WavFile](src/CSharpExercises/Signals/WavFile.cs) | writing and reading RIFF/WAVE PCM, skipping unknown chunks |
+| | [Filters](src/CSharpExercises/Signals/Filters.cs) | one-pole low-pass and high-pass, median filter for spikes |
+| | [PitchDetection](src/CSharpExercises/Signals/PitchDetection.cs) | autocorrelation pitch detection, nearest note and cents |
+| **Interpreters** | [ShuntingYard](src/CSharpExercises/Interpreters/ShuntingYard.cs) | infix to RPN with associativity, unary minus and functions |
+| | [StackMachine](src/CSharpExercises/Interpreters/StackMachine.cs) | a bytecode VM with calls and jumps, a two-pass assembler |
+| | [TinyRegex](src/CSharpExercises/Interpreters/TinyRegex.cs) | Thompson NFA matching without catastrophic backtracking |
+| | [TinyLisp](src/CSharpExercises/Interpreters/TinyLisp.cs) | reader, eval, closures, `let`, and tail calls in a loop |
+| | [Brainfuck](src/CSharpExercises/Interpreters/Brainfuck.cs) | bracket pre-pairing and run folding |
+| **Numerical methods** | [RootFinding](src/CSharpExercises/NumericalMethods/RootFinding.cs) | bisection, Newton and secant, convergence speed compared |
+| | [Integration](src/CSharpExercises/NumericalMethods/Integration.cs) | trapezoid, Simpson, adaptive Simpson, Monte Carlo |
+| | [Interpolation](src/CSharpExercises/NumericalMethods/Interpolation.cs) | linear, Lagrange (and Runge's phenomenon), natural cubic splines |
+| | [GradientDescent](src/CSharpExercises/NumericalMethods/GradientDescent.cs) | numerical gradients, momentum, fitting a line, the Rosenbrock valley |
+| | [OdeSolvers](src/CSharpExercises/NumericalMethods/OdeSolvers.cs) | Euler, RK4, semi-implicit Euler conserving a spring's energy |
+| | [SimulatedAnnealing](src/CSharpExercises/NumericalMethods/SimulatedAnnealing.cs) | 2-opt moves with a cooling schedule on a 100-city tour |
+| **Security** | [PasswordHasher](src/CSharpExercises/Security/PasswordHasher.cs) | salted PBKDF2, constant-time comparison, rehashing on cost upgrades |
+| | [SignedToken](src/CSharpExercises/Security/SignedToken.cs) | HS256 JWTs by hand, rejecting `alg: none`, tampering and expiry |
+| | [Totp](src/CSharpExercises/Security/Totp.cs) | RFC 6238 codes, drift window, replay protection, provisioning URIs |
+| | [PasswordStrength](src/CSharpExercises/Security/PasswordStrength.cs) | entropy estimates discounted for common words, repeats and sequences |
+| | [HtmlSanitizer](src/CSharpExercises/Security/HtmlSanitizer.cs) | allowlisted tags and attributes, safe URL schemes |
+| **Commerce** | [VatCalculator](src/CSharpExercises/Commerce/VatCalculator.cs) | rounding per line vs per rate, extracting VAT from gross prices |
+| | [TieredPricing](src/CSharpExercises/Commerce/TieredPricing.cs) | volume vs graduated tiers, price cliffs |
+| | [Proration](src/CSharpExercises/Commerce/Proration.cs) | plan changes mid-cycle by actual days, partial first periods |
+| | [InventoryReservations](src/CSharpExercises/Commerce/InventoryReservations.cs) | holding stock with expiry, confirming and releasing |
+| | [CurrencyConverter](src/CSharpExercises/Commerce/CurrencyConverter.cs) | triangulated rates, minor units per currency, spreads |
 
 ## Project structure
 
@@ -347,6 +426,13 @@ Ideas for upcoming exercises:
 - [x] **Functional programming**: Option, trampolines, lenses, zippers, monoids, parser combinators
 - [x] **More patterns & collections**: command, visitor, composite, proxy, mediator; deque, skip list, LFU, AVL tree
 - [x] **Checksums & finance**: Luhn, IBAN, ISBN, Damm, loan amortization, NPV and IRR
+- [x] **Combinatorics & fuzzy matching**: binomials, permutations, partitions, Catalan; Jaro–Winkler, BK-trees, MinHash
+- [x] **Search engine**: tokenizing and stemming, inverted index, BM25, boolean queries, snippets, autocomplete
+- [x] **Operating systems & networking**: scheduling, paging, allocators; CIDR, routing, checksums, HTTP parsing
+- [x] **Distributed systems & event sourcing**: logical clocks, CRDTs, Merkle trees, 2PC; event store, projections, sagas
+- [x] **Spatial, imaging & signals**: quadtrees, k-d trees, geohash; filters, dithering; FFT, DTMF, pitch detection
+- [x] **Interpreters & numerical methods**: a VM, a regex engine, a Lisp; root finding, integration, ODEs, annealing
+- [x] **Security & commerce**: password hashing, JWT, TOTP, sanitizing; VAT, tiered pricing, proration, FX
 
 ## Author
 
