@@ -26,6 +26,12 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Trie](src/CSharpExercises/Collections/Trie.cs) | prefix tree for autocomplete, ranked suggestions, removal with pruning, iterative traversal |
 | | [UnionFind&lt;T&gt;](src/CSharpExercises/Collections/UnionFind.cs) | disjoint sets with union by size and path compression |
 | | [RingBuffer&lt;T&gt;](src/CSharpExercises/Collections/RingBuffer.cs) | fixed-size circular buffer, overwrite-oldest, moving average, fail-fast enumeration |
+| | [Deque&lt;T&gt;](src/CSharpExercises/Collections/Deque.cs) | double-ended queue on a growable circular array, O(1) at both ends and by index |
+| | [SkipList&lt;T&gt;](src/CSharpExercises/Collections/SkipList.cs) | sorted linked list with random "express lanes", O(log n) expected, range queries |
+| | [LfuCache&lt;TKey, TValue&gt;](src/CSharpExercises/Collections/LfuCache.cs) | O(1) least-frequently-used eviction with per-frequency lists, ties broken by recency |
+| | [BiMap&lt;TKey, TValue&gt;](src/CSharpExercises/Collections/BiMap.cs) | lookups in both directions, keeping two dictionaries consistent |
+| | [IntervalSet](src/CSharpExercises/Collections/IntervalSet.cs) | merged half-open ranges: adding merges, removing splits, finding free slots |
+| | [AvlTree&lt;T&gt;](src/CSharpExercises/Collections/AvlTree.cs) | self-balancing BST with rotations, subtree sizes for k-th smallest and rank |
 | **LINQ** | [LinqExercises](src/CSharpExercises/Linq/LinqExercises.cs) | `GroupBy`, `MaxBy`, `CountBy`, `Chunk`, records |
 | | [MyLinq](src/CSharpExercises/Linq/MyLinq.cs) | LINQ operators rebuilt with `yield`: deferred vs. immediate, streaming vs. buffering, eager argument checks |
 | | [RangeSequence](src/CSharpExercises/Linq/RangeSequence.cs) | `IEnumerable<T>` / `IEnumerator<T>` written by hand: what the compiler generates for `yield return` |
@@ -36,6 +42,14 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Factory](src/CSharpExercises/Patterns/ShapeFactory.cs) | create shapes from text, register new ones without changing the factory |
 | | [Decorator](src/CSharpExercises/Patterns/Decorator.cs) | caching, logging and sale prices stacked around a price service |
 | | [Builder](src/CSharpExercises/Patterns/EmailBuilder.cs) | fluent API producing an immutable, validated email |
+| | [Command](src/CSharpExercises/Patterns/Command.cs) | undo/redo history, commands that remember state, macros undone as one step |
+| | [Chain of responsibility](src/CSharpExercises/Patterns/ChainOfResponsibility.cs) | expense approvals passed along until someone decides |
+| | [Visitor](src/CSharpExercises/Patterns/Visitor.cs) | HTML, Markdown, word count and table of contents over a document tree via double dispatch |
+| | [Composite](src/CSharpExercises/Patterns/Composite.cs) | files and folders behind one abstraction, sizes, search and a `tree`-style listing |
+| | [Adapter](src/CSharpExercises/Patterns/Adapter.cs) | wrapping a legacy Fahrenheit driver with error codes into an async Celsius interface |
+| | [Proxy](src/CSharpExercises/Patterns/Proxy.cs) | lazy (virtual) and protection proxies, a logging proxy generated with `DispatchProxy` |
+| | [Template method](src/CSharpExercises/Patterns/TemplateMethod.cs) | fixed export steps with CSV and Markdown variants and optional hooks |
+| | [Mediator](src/CSharpExercises/Patterns/Mediator.cs) | a chat room routing broadcasts, direct messages and mutes |
 | **Dependency injection** | [MiniContainer](src/CSharpExercises/DependencyInjection/MiniContainer.cs) | a DI container from scratch: reflection-based constructor injection, lifetimes, scopes, cycle and captive-dependency detection |
 | | [Messaging](src/CSharpExercises/DependencyInjection/Messaging.cs) | `Microsoft.Extensions.DependencyInjection`: `AddXxx` extension, keyed services, `TimeProvider`, scope validation |
 | **Testing techniques** | [RenewalService](src/CSharpExercises/Testing/RenewalService.cs) | code designed for testing: dependencies as interfaces, `TimeProvider` for the clock |
@@ -50,6 +64,12 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Backtracking](src/CSharpExercises/Algorithms/Backtracking.cs) | permutations without duplicates, subsets, combination sum with pruning, N-Queens |
 | | [Sudoku](src/CSharpExercises/Algorithms/Sudoku.cs) | backtracking with bit-mask candidates and fewest-options-first |
 | | [StringSearch](src/CSharpExercises/Algorithms/StringSearch.cs) | Knuth–Morris–Pratt substring search in O(n + m) |
+| | [Knapsack](src/CSharpExercises/Algorithms/Knapsack.cs) | 0/1 knapsack with item reconstruction, a one-row version, why greedy fails, subset sum |
+| | [LongestIncreasingSubsequence](src/CSharpExercises/Algorithms/LongestIncreasingSubsequence.cs) | patience sorting in O(n log n), nesting envelopes |
+| | [MaximumSubarray](src/CSharpExercises/Algorithms/MaximumSubarray.cs) | Kadane's algorithm, circular arrays, best single trade |
+| | [WordBreak](src/CSharpExercises/Algorithms/WordBreak.cs) | splitting unspaced text into words: memoised search, all splits, fewest words |
+| | [MatrixChain](src/CSharpExercises/Algorithms/MatrixChain.cs) | interval DP for the cheapest multiplication order |
+| | [IntervalScheduling](src/CSharpExercises/Algorithms/IntervalScheduling.cs) | greedy by end time, room assignment with a priority queue, weighted scheduling with DP |
 | **Caching** | [TtlCache&lt;TKey, TValue&gt;](src/CSharpExercises/Caching/TtlCache.cs) | absolute and sliding expiration on `TimeProvider`, lazy expiry, compaction, hit/miss counts |
 | | [SingleFlight&lt;TKey, TValue&gt;](src/CSharpExercises/Caching/SingleFlight.cs) | stampede protection: concurrent requests for a key share one load, per-caller cancellation |
 | | [CachedLookup&lt;TKey, TValue&gt;](src/CSharpExercises/Caching/CachedLookup.cs) | cache-aside with negative caching and invalidation |
@@ -112,6 +132,91 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Diffing** | [MyersDiff](src/CSharpExercises/Diffing/MyersDiff.cs) | the shortest edit script in O((N+M)·D), the algorithm behind `git diff`, walking the path back through saved frontiers |
 | | [UnifiedDiff](src/CSharpExercises/Diffing/UnifiedDiff.cs) | `diff -u` output: hunks with context, merging nearby changes, `@@ -l,s +l,s @@` headers, parsing a diff back |
 | | [Patch](src/CSharpExercises/Diffing/Patch.cs) | applying hunks to a file that changed since the diff was made: nearest-match search, offsets, conflicts |
+| **Geometry** | [Vec / Segments](src/CSharpExercises/Geometry/Vec.cs) | dot and cross products, orientation, segment intersection without division, point-to-segment distance |
+| | [ConvexHull](src/CSharpExercises/Geometry/ConvexHull.cs) | Andrew's monotone chain in O(n log n), diameter |
+| | [Polygon](src/CSharpExercises/Geometry/Polygon.cs) | shoelace area, winding order, centroid, ray-casting containment, convexity |
+| | [ClosestPair](src/CSharpExercises/Geometry/ClosestPair.cs) | divide and conquer with a strip check, verified against brute force |
+| | [GeoDistance](src/CSharpExercises/Geometry/GeoDistance.cs) | haversine distance, initial bearing, bounding boxes for "within r km" |
+| | [RectangleUnion](src/CSharpExercises/Geometry/RectangleUnion.cs) | area of overlapping rectangles with a sweep line |
+| **Bit manipulation** | [BitTricks](src/CSharpExercises/Bits/BitTricks.cs) | power-of-two tests, Kernighan popcount, lowest set bit, bit reversal, Gosper's hack, subset enumeration |
+| | [BitSet](src/CSharpExercises/Bits/BitSet.cs) | 64 flags per `ulong`, set operations, enumerating with trailing-zero counts, a bit-packed sieve |
+| | [GrayCode](src/CSharpExercises/Bits/GrayCode.cs) | sequences where neighbours differ by one bit, encoding and decoding |
+| | [MortonCode](src/CSharpExercises/Bits/MortonCode.cs) | Z-order curves by interleaving bits, a cheap spatial index |
+| | [TravellingSalesman](src/CSharpExercises/Bits/TravellingSalesman.cs) | Held–Karp dynamic programming over bit-mask subsets |
+| **Range queries** | [PrefixSums](src/CSharpExercises/RangeQueries/PrefixSums.cs) | O(1) range sums in 1D and 2D, counting subarrays with a given sum |
+| | [FenwickTree](src/CSharpExercises/RangeQueries/FenwickTree.cs) | binary indexed tree with O(n) build, counting inversions |
+| | [SegmentTree&lt;T&gt;](src/CSharpExercises/RangeQueries/SegmentTree.cs) | bottom-up, iterative, any associative operation, order-preserving for non-commutative ones |
+| | [SparseTable](src/CSharpExercises/RangeQueries/SparseTable.cs) | O(1) range minimum on static data with overlapping power-of-two windows |
+| | [DifferenceArray](src/CSharpExercises/RangeQueries/DifferenceArray.cs) | batched range updates, peak overlap of bookings |
+| | [SlidingWindow](src/CSharpExercises/RangeQueries/SlidingWindow.cs) | window maximums with a monotonic deque, longest substring without repeats, shortest window with a sum |
+| **Graph algorithms** | [StronglyConnectedComponents](src/CSharpExercises/Graphs/StronglyConnectedComponents.cs) | Tarjan's algorithm in one DFS, condensation |
+| | [BellmanFord](src/CSharpExercises/Graphs/BellmanFord.cs) | negative weights, finding the negative cycle, currency arbitrage with -log(rate) |
+| | [FloydWarshall](src/CSharpExercises/Graphs/FloydWarshall.cs) | all-pairs shortest paths, next-hop path reconstruction, graph centre |
+| | [Bipartite](src/CSharpExercises/Graphs/Bipartite.cs) | two-colouring with BFS, maximum matching with augmenting paths |
+| | [MaxFlow](src/CSharpExercises/Graphs/MaxFlow.cs) | Edmonds–Karp with residual capacities, the minimum cut |
+| | [GridPathfinding](src/CSharpExercises/Graphs/GridPathfinding.cs) | A* with a Manhattan heuristic and weighted cells, compared with Dijkstra |
+| | [CriticalConnections](src/CSharpExercises/Graphs/CriticalConnections.cs) | bridges and articulation points with low-link values |
+| **Text algorithms** | [RabinKarp](src/CSharpExercises/TextAlgorithms/RabinKarp.cs) | rolling hashes mod a Mersenne prime, longest repeated substring by binary search |
+| | [ZFunction](src/CSharpExercises/TextAlgorithms/ZFunction.cs) | prefix-match lengths in O(n), pattern search, smallest period |
+| | [Manacher](src/CSharpExercises/TextAlgorithms/Manacher.cs) | longest palindromic substring in O(n) |
+| | [SuffixArray](src/CSharpExercises/TextAlgorithms/SuffixArray.cs) | prefix doubling, Kasai's LCP array, substring search, distinct substrings |
+| | [AhoCorasick](src/CSharpExercises/TextAlgorithms/AhoCorasick.cs) | many patterns in one pass with failure links, a word censor |
+| | [Soundex](src/CSharpExercises/TextAlgorithms/Soundex.cs) | phonetic codes so "Robert" matches "Rupert" |
+| | [WordWrap](src/CSharpExercises/TextAlgorithms/WordWrap.cs) | greedy line breaking vs. minimum raggedness with DP |
+| **Randomness** | [Xoshiro256](src/CSharpExercises/Randomness/Xoshiro256.cs) | a seeded PRNG, SplitMix64 seeding, unbiased bounded integers with Lemire's method |
+| | [Shuffling](src/CSharpExercises/Randomness/Shuffling.cs) | Fisher–Yates vs. the biased naive shuffle, sampling without replacement |
+| | [ReservoirSampler&lt;T&gt;](src/CSharpExercises/Randomness/ReservoirSampler.cs) | uniform samples from a stream of unknown length, weighted reservoir sampling |
+| | [AliasTable&lt;T&gt;](src/CSharpExercises/Randomness/AliasTable.cs) | Vose's alias method: O(1) weighted draws |
+| | [MonteCarlo](src/CSharpExercises/Randomness/MonteCarlo.cs) | estimating π, the birthday paradox, Monty Hall |
+| **Statistics** | [RunningStats](src/CSharpExercises/Statistics/RunningStats.cs) | Welford's one-pass variance, merging partial results, why E[x²] - E[x]² fails |
+| | [StreamingMedian](src/CSharpExercises/Statistics/StreamingMedian.cs) | median of a stream with two heaps |
+| | [Percentiles](src/CSharpExercises/Statistics/Percentiles.cs) | nearest-rank vs. interpolated percentiles, quickselect |
+| | [HyperLogLog](src/CSharpExercises/Statistics/HyperLogLog.cs) | counting distinct items in 4 KB, merging sketches |
+| | [CountMinSketch](src/CSharpExercises/Statistics/CountMinSketch.cs) | approximate counts that never underestimate, heavy hitters |
+| | [LinearRegression](src/CSharpExercises/Statistics/LinearRegression.cs) | least squares fit, R², correlation |
+| | [MovingAverages](src/CSharpExercises/Statistics/MovingAverages.cs) | simple and exponential moving averages, half-life decay for irregular samples |
+| **Linear algebra** | [Matrix](src/CSharpExercises/LinearAlgebra/Matrix.cs) | immutable row-major matrix, cache-friendly multiplication order |
+| | [GaussianElimination](src/CSharpExercises/LinearAlgebra/GaussianElimination.cs) | solving systems with partial pivoting, determinant, Gauss–Jordan inverse |
+| | [MatrixPower](src/CSharpExercises/LinearAlgebra/MatrixPower.cs) | exponentiation by squaring for Fibonacci, Tribonacci and counting walks |
+| | [GridTransforms](src/CSharpExercises/LinearAlgebra/GridTransforms.cs) | in-place rotation, spiral order, searching a sorted matrix |
+| | [Transform2D](src/CSharpExercises/LinearAlgebra/Transform2D.cs) | affine transforms in homogeneous coordinates, composition, inverse, rotating around a point |
+| | [PageRank](src/CSharpExercises/LinearAlgebra/PageRank.cs) | power iteration with damping and dead ends |
+| **Reliability** | [TokenBucket](src/CSharpExercises/Reliability/TokenBucket.cs) | burst-friendly rate limiting with lazy refill on `TimeProvider`, Retry-After |
+| | [CircuitBreaker](src/CSharpExercises/Reliability/CircuitBreaker.cs) | closed → open → half-open with a single trial call, state change events |
+| | [Bulkhead](src/CSharpExercises/Reliability/Bulkhead.cs) | capping concurrency plus a queue, rejecting the rest immediately |
+| | [LoadBalancer](src/CSharpExercises/Reliability/LoadBalancer.cs) | smooth weighted round-robin, health checks, power of two choices |
+| | [TimingWheel](src/CSharpExercises/Reliability/TimingWheel.cs) | O(1) timeouts in hashed slots with rotation counts |
+| | [CronSchedule](src/CSharpExercises/Reliability/CronSchedule.cs) | five-field cron parsing with lists, ranges and steps, the day-of-month/day-of-week rule |
+| **Codecs** | [Base64Codec](src/CSharpExercises/Codecs/Base64Codec.cs) | 6-bit groups and padding by hand, URL-safe variant, strict decoding |
+| | [HexDump](src/CSharpExercises/Codecs/HexDump.cs) | hex with nibble arithmetic, an `xxd`-style dump |
+| | [PercentEncoding](src/CSharpExercises/Codecs/PercentEncoding.cs) | RFC 3986 escaping of UTF-8 bytes, `+` for spaces in forms, query strings |
+| | [Utf8Codec](src/CSharpExercises/Codecs/Utf8Codec.cs) | UTF-8 by hand, rejecting overlong forms and surrogates, truncating on character boundaries |
+| | [RomanNumerals](src/CSharpExercises/Codecs/RomanNumerals.cs) | greedy encoding, parsing that rejects non-canonical numerals |
+| | [NumberToWords](src/CSharpExercises/Codecs/NumberToWords.cs) | spelling numbers in English, cheque amounts, ordinals |
+| **File formats** | [Csv](src/CSharpExercises/Formats/Csv.cs) | RFC 4180 state machine: quotes, escaped quotes, embedded newlines, headers |
+| | [IniFile](src/CSharpExercises/Formats/IniFile.cs) | sections, comments, quoted values, `${section.key}` references, typed reads with `IParsable<T>` |
+| | [MiniJson](src/CSharpExercises/Formats/MiniJson.cs) | a complete JSON parser and serializer with positioned errors and a nesting limit |
+| | [SemanticVersion](src/CSharpExercises/Formats/SemanticVersion.cs) | semver precedence (pre-releases, numeric identifiers), caret ranges |
+| | [CommandLine](src/CSharpExercises/Formats/CommandLine.cs) | `--name value`, `--name=value`, bundled flags, `--`, shell-style splitting |
+| | [HumanReadable](src/CSharpExercises/Formats/HumanReadable.cs) | `1.5 GiB` vs `1.5 GB`, `2h30m` durations, both directions |
+| **Simulations** | [GameOfLife](src/CSharpExercises/Simulations/GameOfLife.cs) | Conway's Life on an unbounded board stored as a set of live cells |
+| | [ElementaryAutomaton](src/CSharpExercises/Simulations/ElementaryAutomaton.cs) | Wolfram rules 30, 90 and 110 |
+| | [TicTacToe](src/CSharpExercises/Simulations/TicTacToe.cs) | negamax with alpha-beta pruning, perfect play ends in a draw |
+| | [Maze](src/CSharpExercises/Simulations/Maze.cs) | recursive backtracker with an explicit stack, BFS solving, ASCII rendering |
+| | [FloodFill](src/CSharpExercises/Simulations/FloodFill.cs) | iterative paint bucket, counting islands, capturing surrounded regions |
+| | [QueueSimulation](src/CSharpExercises/Simulations/QueueSimulation.cs) | discrete-event simulation of tellers, compared with M/M/1 queueing theory |
+| **Functional programming** | [Option&lt;T&gt;](src/CSharpExercises/FunctionalProgramming/Option.cs) | an optional value instead of null, `Map`/`Bind`/`Match`, LINQ query syntax |
+| | [Trampoline](src/CSharpExercises/FunctionalProgramming/Trampoline.cs) | deep and mutual recursion in constant stack space |
+| | [Lens](src/CSharpExercises/FunctionalProgramming/Lens.cs) | composable getters and immutable setters for nested records |
+| | [Zipper&lt;T&gt;](src/CSharpExercises/FunctionalProgramming/Zipper.cs) | an immutable list with an O(1) cursor |
+| | [Monoids](src/CSharpExercises/FunctionalProgramming/Monoids.cs) | `IMonoid<T>` with static abstract members, parallel folds, Kadane as a monoid |
+| | [ParserCombinators](src/CSharpExercises/FunctionalProgramming/ParserCombinators.cs) | small parsers combined with `Or`, `Many` and LINQ into a calculator grammar |
+| **Checksums** | [Luhn](src/CSharpExercises/Checksums/Luhn.cs) | payment card check digits, card brands, the 09 ↔ 90 blind spot |
+| | [Iban](src/CSharpExercises/Checksums/Iban.cs) | mod 97 by long division, country lengths, helpful error messages |
+| | [Isbn](src/CSharpExercises/Checksums/Isbn.cs) | ISBN-10 (mod 11) and ISBN-13 (EAN), converting between them |
+| | [Damm](src/CSharpExercises/Checksums/Damm.cs) | a quasigroup table that catches every single error and adjacent swap |
+| **Finance** | [Amortization](src/CSharpExercises/Finance/Amortization.cs) | annuity payments, a cent-exact repayment schedule, the effect of paying extra |
+| | [CashFlows](src/CSharpExercises/Finance/CashFlows.cs) | NPV, IRR with Newton's method and a bisection fallback, payback period, compounding |
 
 ## Project structure
 
@@ -231,6 +336,17 @@ Ideas for upcoming exercises:
 - [x] **Async coordination**: async locks and events, async lazy initialisation, a lock-free stack
 - [x] **Compression & encoding**: varints with ZigZag and deltas, Huffman coding, human-friendly Base32 with check symbols
 - [x] **Diffing**: the Myers diff algorithm, unified diff output, applying patches that have drifted
+- [x] **Geometry & bits**: convex hulls, polygons, closest pair, haversine, bit tricks, Gray and Morton codes, Held–Karp
+- [x] **Range queries**: prefix sums, Fenwick and segment trees, sparse tables, sliding windows
+- [x] **Graph & text algorithms**: SCCs, Bellman–Ford, Floyd–Warshall, max flow, A*, suffix arrays, Aho–Corasick, Manacher
+- [x] **More DP & randomness**: knapsack, LIS, Kadane, interval scheduling, Fisher–Yates, reservoir sampling, alias tables
+- [x] **Statistics & linear algebra**: Welford, HyperLogLog, count-min, regression, Gaussian elimination, PageRank
+- [x] **Reliability**: token bucket, circuit breaker, bulkhead, load balancing, timing wheels, cron
+- [x] **Codecs & formats**: Base64, UTF-8, percent-encoding, CSV, INI, JSON, semver, command lines
+- [x] **Simulations**: Game of Life, cellular automata, minimax, mazes, flood fill, queueing
+- [x] **Functional programming**: Option, trampolines, lenses, zippers, monoids, parser combinators
+- [x] **More patterns & collections**: command, visitor, composite, proxy, mediator; deque, skip list, LFU, AVL tree
+- [x] **Checksums & finance**: Luhn, IBAN, ISBN, Damm, loan amortization, NPV and IRR
 
 ## Author
 
