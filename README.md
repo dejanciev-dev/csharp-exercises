@@ -32,6 +32,10 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [BiMap&lt;TKey, TValue&gt;](src/CSharpExercises/Collections/BiMap.cs) | lookups in both directions, keeping two dictionaries consistent |
 | | [IntervalSet](src/CSharpExercises/Collections/IntervalSet.cs) | merged half-open ranges: adding merges, removing splits, finding free slots |
 | | [AvlTree&lt;T&gt;](src/CSharpExercises/Collections/AvlTree.cs) | self-balancing BST with rotations, subtree sizes for k-th smallest and rank |
+| | [Rope](src/CSharpExercises/Collections/Rope.cs) | a persistent tree of string pieces: cheap inserts and deletes, shared old versions |
+| | [InsertionOrderedMap&lt;TKey, TValue&gt;](src/CSharpExercises/Collections/InsertionOrderedMap.cs) | a hash map plus linked list that keeps insertion order, or acts as an LRU cache |
+| | [IndexedPriorityQueue&lt;TItem, TPriority&gt;](src/CSharpExercises/Collections/IndexedPriorityQueue.cs) | a heap with a position index for decrease-key, Dijkstra without duplicate entries |
+| | [Bag&lt;T&gt;](src/CSharpExercises/Collections/Bag.cs) | a multiset with counts, most common items, multiset union, intersection and difference |
 | **LINQ** | [LinqExercises](src/CSharpExercises/Linq/LinqExercises.cs) | `GroupBy`, `MaxBy`, `CountBy`, `Chunk`, records |
 | | [MyLinq](src/CSharpExercises/Linq/MyLinq.cs) | LINQ operators rebuilt with `yield`: deferred vs. immediate, streaming vs. buffering, eager argument checks |
 | | [RangeSequence](src/CSharpExercises/Linq/RangeSequence.cs) | `IEnumerable<T>` / `IEnumerator<T>` written by hand: what the compiler generates for `yield return` |
@@ -99,6 +103,11 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [BoundedBuffer&lt;T&gt;](src/CSharpExercises/Concurrency/BoundedBuffer.cs) | blocking producer/consumer queue with `Monitor.Wait` / `PulseAll` |
 | | [OnceCache&lt;TKey, TValue&gt;](src/CSharpExercises/Concurrency/OnceCache.cs) | `ConcurrentDictionary` + `Lazy<T>` so the factory runs once per key, retry after a failed build |
 | | [LockFreeStack&lt;T&gt;](src/CSharpExercises/Concurrency/LockFreeStack.cs) | Treiber stack with compare-and-swap, `SpinWait` back-off, why .NET has no ABA problem here |
+| | [ReadWriteCache&lt;TKey, TValue&gt;](src/CSharpExercises/Concurrency/ReadWriteCache.cs) | `ReaderWriterLockSlim` with an upgradeable lock so a missing value is built once |
+| | [Actor](src/CSharpExercises/Concurrency/Actor.cs) | lock-free state owned by one mailbox loop on a `Channel<T>`, post and ask |
+| | [ParallelAggregation](src/CSharpExercises/Concurrency/ParallelAggregation.cs) | thread-local partial sums vs. a shared lock, parallel histograms, PLINQ |
+| | [PhasedComputation](src/CSharpExercises/Concurrency/PhasedComputation.cs) | `Barrier` phases with double buffering, `CountdownEvent`, exceptions on pool threads |
+| | [StripedMap&lt;TKey, TValue&gt;](src/CSharpExercises/Concurrency/StripedMap.cs) | lock striping, consistent counts by taking locks in a fixed order |
 | **Domain modelling** | [PrefixedIds](src/CSharpExercises/Domain/PrefixedIds.cs) | strongly typed `cus_…` / `ord_…` ids with static abstract members, time-ordered `Guid.CreateVersion7` |
 | | [ValueObjects](src/CSharpExercises/Domain/ValueObjects.cs) | always-valid `EmailAddress` via `Result<T>`, `DateRange` with overlap, intersection and merging |
 | | [Allocation](src/CSharpExercises/Domain/Allocation.cs) | splitting money without losing cents: largest-remainder method, by ratios, refunds |
@@ -121,6 +130,10 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [VendingMachine](src/CSharpExercises/StateMachines/VendingMachine.cs) | a pure `(state, event) => (state, effects)` function with pattern matching, replayable and immutable |
 | **Dates & times** | [CalendarMath](src/CSharpExercises/DatesAndTimes/CalendarMath.cs) | `DateOnly`, age with 29 February birthdays, nth weekday of a month, Easter, business days with holidays |
 | | [TimeZones](src/CSharpExercises/DatesAndTimes/TimeZones.cs) | skipped and repeated local times around DST, "same time tomorrow", shared working hours, a weekly schedule |
+| | [RecurrenceRule](src/CSharpExercises/DatesAndTimes/RecurrenceRule.cs) | iCalendar RRULEs (daily, weekly by day, monthly), COUNT and UNTIL, skipping short months |
+| | [BusinessHours](src/CSharpExercises/DatesAndTimes/BusinessHours.cs) | SLA due dates in working time, skipping nights, weekends and holidays |
+| | [RelativeTime](src/CSharpExercises/DatesAndTimes/RelativeTime.cs) | "5 minutes ago", "yesterday", "in 3 weeks", compact "3h" forms |
+| | [Iso8601](src/CSharpExercises/DatesAndTimes/Iso8601.cs) | ISO week numbers around New Year, `P1DT2H` durations with calendar-aware adding |
 | **Parsing** | [Lexer](src/CSharpExercises/Parsing/Lexer.cs) | turning text into tokens, syntax errors with positions |
 | | [Parser](src/CSharpExercises/Parsing/Parser.cs) | recursive descent: precedence and associativity from the grammar, a syntax tree of records |
 | | [ExpressionTools](src/CSharpExercises/Parsing/ExpressionTools.cs) | evaluating with variables and functions, constant folding, printing with minimal parentheses |
@@ -296,6 +309,14 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [Proration](src/CSharpExercises/Commerce/Proration.cs) | plan changes mid-cycle by actual days, partial first periods |
 | | [InventoryReservations](src/CSharpExercises/Commerce/InventoryReservations.cs) | holding stock with expiry, confirming and releasing |
 | | [CurrencyConverter](src/CSharpExercises/Commerce/CurrencyConverter.cs) | triangulated rates, minor units per currency, spreads |
+| **Data processing** | [Joins](src/CSharpExercises/DataProcessing/Joins.cs) | nested loop, hash and merge joins, left outer joins |
+| | [ExternalSort](src/CSharpExercises/DataProcessing/ExternalSort.cs) | sorted runs on disk merged with a lazy, stable k-way merge |
+| | [PivotTable&lt;TRow&gt;](src/CSharpExercises/DataProcessing/PivotTable.cs) | rows × columns aggregation with totals and a text rendering |
+| | [TimeSeries](src/CSharpExercises/DataProcessing/TimeSeries.cs) | resampling into buckets, zero / forward / interpolated gap filling, counter resets |
+| | [WindowFunctions](src/CSharpExercises/DataProcessing/WindowFunctions.cs) | ROW_NUMBER, RANK, DENSE_RANK, LAG, running totals, moving averages |
+| | [SnapshotDiff](src/CSharpExercises/DataProcessing/SnapshotDiff.cs) | added, removed and modified records between two exports, field by field |
+| **Property-based testing** | [Gen&lt;T&gt;](src/CSharpExercises/PropertyTesting/Gen.cs) | composable random generators with shrinkers |
+| | [Property](src/CSharpExercises/PropertyTesting/Property.cs) | checking properties over generated inputs, shrinking counterexamples, replayable seeds |
 
 ## Project structure
 
@@ -433,6 +454,8 @@ Ideas for upcoming exercises:
 - [x] **Spatial, imaging & signals**: quadtrees, k-d trees, geohash; filters, dithering; FFT, DTMF, pitch detection
 - [x] **Interpreters & numerical methods**: a VM, a regex engine, a Lisp; root finding, integration, ODEs, annealing
 - [x] **Security & commerce**: password hashing, JWT, TOTP, sanitizing; VAT, tiered pricing, proration, FX
+- [x] **Data processing & property testing**: joins, external sort, pivots, window functions; generators and shrinking
+- [x] **More dates, collections & concurrency**: RRULEs, SLAs, ISO weeks; rope, bag, decrease-key heap; actors, barriers, lock striping
 
 ## Author
 
