@@ -426,6 +426,14 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Units of measure** | [Dimension](src/CSharpExercises/Units/Dimension.cs) | length, mass and time exponents, multiplied and divided |
 | | [UnitConverter](src/CSharpExercises/Units/UnitConverter.cs) | compound units like `km/h` and `kg*m/s^2`, SI prefixes, dimension checks |
 | | [Temperature](src/CSharpExercises/Units/Temperature.cs) | offsets for readings but not for differences |
+| **Sports scoring** | [Bowling](src/CSharpExercises/Scoring/Bowling.cs) | strike and spare bonuses, running totals that wait for them, impossible games |
+| | [Tennis](src/CSharpExercises/Scoring/Tennis.cs) | deuce and advantage, sets won by two games or a tiebreak |
+| | [Darts](src/CSharpExercises/Scoring/Darts.cs) | shortest checkouts finishing on a double, the bogey numbers |
+| **Voting** | [RankedVoting](src/CSharpExercises/Voting/RankedVoting.cs) | plurality, instant runoff, Borda and Condorcet disagreeing on the same ballots |
+| | [Apportionment](src/CSharpExercises/Voting/Apportionment.cs) | D'Hondt, Sainte-Laguë, largest remainder and the Alabama paradox |
+| **Astronomy** | [JulianDay](src/CSharpExercises/Astronomy/JulianDay.cs) | dates to day numbers and back with Meeus's formulas, weekdays |
+| | [MoonPhase](src/CSharpExercises/Astronomy/MoonPhase.cs) | age from the synodic month, lit fraction, named phases |
+| | [Kepler](src/CSharpExercises/Astronomy/Kepler.cs) | Kepler's equation by Newton's method, orbital positions, the third law |
 
 ## Project structure
 
@@ -572,6 +580,7 @@ Ideas for upcoming exercises:
 - [x] **Accounting, formats, async & numerics**: ledgers, depreciation; logfmt, NDJSON, RSS; batching, keyed locks; fixed point, continued fractions
 - [x] **Testing, reflection, planning, recommendations & diagnostics**: snapshot and mutation testing; mappers and diffs; CPM, Hungarian; Apriori; logging, metrics, tracing
 - [x] **Tournaments, music theory & units**: Elo, round robins, brackets; scales and chord names; dimensional analysis
+- [x] **Sports scoring, voting & astronomy**: bowling, tennis, darts; runoffs, Condorcet, D'Hondt; Julian days, moon phases, Kepler orbits
 
 ## Author
 
