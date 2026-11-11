@@ -433,6 +433,13 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | **Astronomy** | [JulianDay](src/CSharpExercises/Astronomy/JulianDay.cs) | dates to day numbers and back with Meeus's formulas, weekdays |
 | | [MoonPhase](src/CSharpExercises/Astronomy/MoonPhase.cs) | age from the synodic month, lit fraction, named phases |
 | | [Kepler](src/CSharpExercises/Astronomy/Kepler.cs) | Kepler's equation by Newton's method, orbital positions, the third law |
+| **Card games** | [Card](src/CSharpExercises/Cards/Card.cs) | parsing `As`, `Td` and `10h` |
+| | [PokerHand](src/CSharpExercises/Cards/PokerHand.cs) | ranking by rank-count patterns, the wheel, kickers, best five of seven |
+| | [Blackjack](src/CSharpExercises/Cards/Blackjack.cs) | soft and hard totals, S17 vs H17 dealers, exact dealer bust odds |
+| **Chemistry** | [ChemicalFormula](src/CSharpExercises/Chemistry/ChemicalFormula.cs) | nested groups and hydrates, molar masses, mass fractions |
+| | [EquationBalancer](src/CSharpExercises/Chemistry/EquationBalancer.cs) | balancing as a null space found with exact rational elimination |
+| **Bioinformatics** | [Dna](src/CSharpExercises/Bioinformatics/Dna.cs) | reverse complements, the genetic code in 64 characters, open reading frames |
+| | [SequenceAlignment](src/CSharpExercises/Bioinformatics/SequenceAlignment.cs) | Needleman–Wunsch global and Smith–Waterman local alignment |
 
 ## Project structure
 
@@ -580,6 +587,7 @@ Ideas for upcoming exercises:
 - [x] **Testing, reflection, planning, recommendations & diagnostics**: snapshot and mutation testing; mappers and diffs; CPM, Hungarian; Apriori; logging, metrics, tracing
 - [x] **Tournaments, music theory & units**: round robins, brackets; scales and chord names; dimensional analysis
 - [x] **Sports scoring, voting & astronomy**: bowling, tennis, darts; runoffs, Condorcet, D'Hondt; Julian days, moon phases, Kepler orbits
+- [x] **Card games, chemistry & bioinformatics**: poker hands, blackjack odds; formulas and equation balancing; DNA translation, sequence alignment
 
 ## Author
 
