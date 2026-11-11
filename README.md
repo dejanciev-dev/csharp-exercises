@@ -417,8 +417,7 @@ A collection of C# exercises covering language fundamentals, data structures, LI
 | | [HealthChecks](src/CSharpExercises/Diagnostics/HealthChecks.cs) | parallel checks with timeouts, critical vs degraded |
 | | [CorrelationContext](src/CSharpExercises/Diagnostics/CorrelationContext.cs) | how `AsyncLocal` flows down but not back up, suppressing flow |
 | | [LogDeduplicator](src/CSharpExercises/Diagnostics/LogDeduplicator.cs) | "last message repeated N times" instead of log floods |
-| **Tournaments** | [Elo](src/CSharpExercises/Tournaments/Elo.cs) | expected scores from rating gaps, zero-sum updates, replaying a season |
-| | [RoundRobin](src/CSharpExercises/Tournaments/RoundRobin.cs) | the circle method, byes for odd fields, alternating home and away |
+| **Tournaments** | [RoundRobin](src/CSharpExercises/Tournaments/RoundRobin.cs) | the circle method, byes for odd fields, alternating home and away |
 | | [Bracket](src/CSharpExercises/Tournaments/Bracket.cs) | single-elimination seeding so favourites meet late, byes for the top seeds |
 | **Music theory** | [Pitch](src/CSharpExercises/Music/Pitch.cs) | scientific pitch notation ↔ MIDI, enharmonics, equal-temperament frequencies |
 | | [Scales](src/CSharpExercises/Music/Scales.cs) | the seven modes as rotations, spelled with one letter per degree |
@@ -579,7 +578,7 @@ Ideas for upcoming exercises:
 - [x] **Web & patterns**: routing, content negotiation, ETags, cursors, CORS, cookies; memento, state, flyweight, bridge
 - [x] **Accounting, formats, async & numerics**: ledgers, depreciation; logfmt, NDJSON, RSS; batching, keyed locks; fixed point, continued fractions
 - [x] **Testing, reflection, planning, recommendations & diagnostics**: snapshot and mutation testing; mappers and diffs; CPM, Hungarian; Apriori; logging, metrics, tracing
-- [x] **Tournaments, music theory & units**: Elo, round robins, brackets; scales and chord names; dimensional analysis
+- [x] **Tournaments, music theory & units**: round robins, brackets; scales and chord names; dimensional analysis
 - [x] **Sports scoring, voting & astronomy**: bowling, tennis, darts; runoffs, Condorcet, D'Hondt; Julian days, moon phases, Kepler orbits
 
 ## Author

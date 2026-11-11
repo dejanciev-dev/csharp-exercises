@@ -4,35 +4,6 @@ namespace CSharpExercises.Tests;
 
 public class TournamentsTests
 {
-    [Fact]
-    public void Elo_ExpectedScoreFollowsTheRatingGap()
-    {
-        Assert.Equal(0.5, Elo.Expected(1500, 1500));
-        Assert.Equal(10.0 / 11, Elo.Expected(1900, 1500), 9);
-        Assert.Equal(1, Elo.Expected(1900, 1500) + Elo.Expected(1500, 1900), 9);
-    }
-
-    [Fact]
-    public void Elo_UpsetsMoveMorePointsThanExpectedWins()
-    {
-        var (a, b) = Elo.Update(1500, 1500, 1);
-        Assert.Equal(1516, a, 9);
-        Assert.Equal(1484, b, 9);
-
-        var (favourite, _) = Elo.Update(1900, 1500, 1);
-        var (_, underdog) = Elo.Update(1900, 1500, 0);
-        Assert.True(favourite - 1900 < 3);
-        Assert.True(underdog - 1500 > 29);
-    }
-
-    [Fact]
-    public void Elo_ReplayKeepsTheTotalConstant()
-    {
-        var ratings = Elo.Replay([("ann", "bob", 1), ("bob", "cat", 0.5), ("cat", "ann", 1), ("ann", "bob", 0)]);
-
-        Assert.Equal(3 * 1500, ratings.Values.Sum(), 9);
-    }
-
     [Theory]
     [InlineData(4)]
     [InlineData(5)]
